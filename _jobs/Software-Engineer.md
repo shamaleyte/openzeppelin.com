@@ -17,8 +17,7 @@ slug: ''
   <h3 class="job-description-title">What you'll do</h3>
   <ul>
     <li>
-      <p>
-        Create <a href="https://ethernaut.openzeppelin.com/">decentralized web applications</a> to support the Ethereum developer community.</p>
+      <p>Create tools for building dapps and supporting the Ethereum developer community.</p>
     </li>
     <li>
       <p>Own products end-to-end, leading the design and implementation efforts across different layers of the stack.</p>
@@ -38,7 +37,7 @@ slug: ''
       <p>You have experience designing, building, and shipping products from beginning to end with minimal supervision.</p>
     </li>
     <li>
-      <p>You enjoy being a generalist, working on both the frontend, backend, and everything in between to solve problems and delight users.</p>
+      <p>You enjoy being a generalist, working on anything needed to create a delightful experience for your users.You have a keen eye for design and a basic understanding of basic UI & UX principles.</p>
     </li>
     <li>
       <p>You are actively interested in blockchain technology, decentralization, and cryptography.</p>
