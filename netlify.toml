@@ -1,0 +1,8 @@
+[build]
+command = "jekyll build"
+publish = "_site"
+
+[[redirects]]
+from = "/start"
+to = "/starter-kits"
+status = 301
