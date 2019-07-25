@@ -1,7 +1,7 @@
 			<nav class="p-menu">
 				<ul class="p-menu__list">
 					<li class="p-menu__item">
-						<a href="https://docs.openzeppelin.com" target="_blank">Docs</a>
+						<a href="{{ page.docs_url | default: "https://docs.openzeppelin.com" }}" target="_blank">Docs</a>
 					</li>
 					<li class="p-menu__item">
 						<a href="{{ page.github_url | default: "https://github.com/OpenZeppelin" }}" target="_blank">Github</a>
