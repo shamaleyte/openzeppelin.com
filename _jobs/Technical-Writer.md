@@ -51,13 +51,10 @@ slug: ''
       <p >You are able to create concise, task-based user documentation.</p>
     </li>
     <li>
-      <p >You may have some knowledge of blockchains\cryptocurrencies.</p>
+      <p >You have experience with ethereum development.</p>
     </li>
     <li>
-      <p >You may have experience as a developer\tester\analyst in IT is a plus.</p>
-    </li>
-    <li>
-      <p >You may have some basic knowledge of git, HTML & CSS, and Markdown.</p>
+    <p >You may have some basic knowledge of git, HTML & CSS, and Markdown.</p>
     </li>
   </ul>
 </div>
