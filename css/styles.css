@@ -367,6 +367,30 @@ a {
   padding: 60px 0;
 }
 
+.section__bg, .section__bg-final {
+	display: none;
+}
+
+.section__bg-left-mobile, .section__bg-right-mobile {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-repeat: no-repeat;
+	top: 0;
+	background-size: contain;
+	width: 50%;
+}
+
+.section__bg-left-mobile {
+	left: 0;
+	background-position: top left;
+}
+
+.section__bg-right-mobile {
+	right: 0;
+	background-position: top right;
+}
+
 /** Sections that contain fakeBgs at the end **/
 .section.section--cutted {
 	padding-bottom: 0;
@@ -379,7 +403,7 @@ a {
 }
 
 .hero .wrapper {
-  margin: 0 auto;
+	margin: 0 auto;
 }
 
 section.section .title {
@@ -475,7 +499,8 @@ section.hero {
 }
 
 .section .wrapper {
-  max-width: 700px;
+	max-width: 700px;
+	max-height: 100%;
 }
 
 .section .wrapper--centered {
@@ -891,7 +916,7 @@ body .overlay--active {
 
 /** Tablet **/
 
-@media (min-width: 700px) {
+@media (min-width: 768px) {
 	html.overlay-visible {
 		overflow: hidden;
 	}
@@ -902,6 +927,45 @@ body .overlay--active {
 
 	.section {
 		padding-top: 75px;
+	}
+
+	.hero .wrapper {
+		margin-bottom: 0;
+	}
+
+	.section__bg-left-mobile, .section__bg-right-mobile {
+		display: none;
+	}
+
+	.section__bg {
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 0;
+		padding: 0;
+		padding-bottom: calc(100% * 3 / 4);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: top center;
+		right: 0;
+		left: 0;
+		z-index: -2;
+		background-position: bottom;
+		bottom: 70px;
+	}
+
+	.section__bg-final {
+		display: block;
+		height: 100%;
+		bottom: -1px;
+		width: 100%;
+		left: 0;
+		right: 0;
+		position: absolute;
+		background-repeat: no-repeat;
+		background-size: 100%;
+		background-position: bottom;
+		z-index: -1;
 	}
 }
 
@@ -921,7 +985,6 @@ body .overlay--active {
 
 	.container {
 		margin: 0 auto;
-		height: 100%;
 	}
 
 	.container--lg {
@@ -936,10 +999,6 @@ body .overlay--active {
 	.row .col {
 		margin-right: 1rem;
 		margin-bottom: 0;
-	}
-
-	.hero {
-		height: 384px;
 	}
 
 	.box--primary {
@@ -1208,40 +1267,24 @@ html {
 	max-width: 500px;
 }
 
+.page-product .p-logo.contracts-logo {
+	margin-right: 1rem;
+}
+
 .page-product .p-logo#sdk-logo > img {
 	margin-left: -31px;
+	position: relative;
+	bottom: 4px;
 }
+
+.page-product .p-logo#starter-logo > img {
+	margin-right: 1rem;
+	position: relative;
+	bottom: 3px;
+}
+
 .page-product .c-hero .description {
 	max-width: 770px;
-}
-
-.section__bg {
-	position: absolute;
-	width: 100%;
-	height: 0;
-	padding: 0;
-	padding-bottom: calc(100% * 3 / 4);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: top center;
-	right: 0;
-	left: 0;
-	z-index: -2;
-	background-position: bottom;
-	bottom: 70px;
-}
-
-.section__bg-final {
-	height: 100%;
-	bottom: -1px;
-	width: 100%;
-	left: 0;
-	right: 0;
-	position: absolute;
-	background-repeat: no-repeat;
-	background-size: 100%;
-	background-position: bottom;
-	z-index: -1;
 }
 
 .page-product .term-container {
@@ -1282,6 +1325,7 @@ section .heading + .grid-logos {
 	/** Mobile should be half **/
 	width: 50%;
 	text-align: center;
+	margin-bottom: 40px;
 }
 
 .grid-logos .grid-logos__col {
@@ -1358,7 +1402,6 @@ section .heading + .grid-logos {
 		width: auto;
 		max-width: 180px;
 		height: 70px;
-		margin-bottom: 40px;
 	}
 
 	.grid-logos .grid-logos__logo {
@@ -1458,25 +1501,20 @@ section .heading + .grid-logos {
 	}
 }
 
-@media (min-width: 300px) and (max-width: 720px) {
+@media (min-width: 300px) and (max-width: 700px) {
 	.page-product.page-start .grid-logos .grid-logos__logo {
 		width: 90%;
 		height: 100%;
 	}
-
-	.page-product.page-start .grid-logos .grid-logos__col:not(:last-child) {
-		margin-bottom: 50px
+	.page-product.page-start .grid-logos .openzeppelin-logo {
+		width: 65%;
+	}
+	.page-product.page-start .grid-logos .grid-logos__col:last-child {
+		margin-bottom: 0;
 	}
 }
 
-
-@media (min-width: 420px) and (max-width: 1024px) {
-	.grid--challenges > .row .box--primary {
-		border-bottom: none;
-	}
-}
-
-@media (min-width: 800px) and (max-width: 1024px) {
+@media (min-width: 980px) and (max-width: 1080px) {
 	.p-products-grid .p-product-card {
 		margin-bottom: 20px;
 	}
@@ -1487,7 +1525,7 @@ section .heading + .grid-logos {
 }
 
 @media (min-width: 400px) and (max-width: 600px) {
-	.page-security section.section.section--cutted.security-audits-hero .heading {
+	.page-security section.section.section--cutted.security-audits-hero .wrapper .heading {
     max-width: 250px;
     margin-left: 0;
 	}
