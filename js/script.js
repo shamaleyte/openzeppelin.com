@@ -7,8 +7,10 @@
         var $el = $(this).find('.sub-nav');
         $el.toggleClass('open');
       });
-      $items.click(function (evt) {
-        evt.preventDefault();
+      $items.children('a').click(function (evt) {
+        if (evt.target.attributes.href.value === '#') {
+          evt.preventDefault();
+        }
       });
     })();
   }
