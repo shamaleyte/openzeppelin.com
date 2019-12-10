@@ -58,7 +58,7 @@ layout: default
 	width: 100%;
 }
 
-.page-job .company-description > p, .page-job .requirements p {
+.page-job .company-description > p, .page-job .company-footer > p, .page-job .requirements p {
 	color: #51516A;
 	text-align: inherit;
 	line-height: 1.8;
@@ -67,7 +67,11 @@ layout: default
 }
 
 .page-job .company-description > p {
-	margin-bottom: 30px;
+	margin-bottom: 2rem;
+}
+
+.page-job .company-footer > p {
+	margin-top: 2rem;
 }
 
 .page-job .job-title-main {
@@ -211,6 +215,11 @@ layout: default
 					</p>
 				</div>
 				{{page.content}}
+				<div class="company-footer">
+					<p>
+						At OpenZeppelin, we are an equal opportunity employer and we value different perspectives. We are committed to building a diverse workforce. This includes but is not limited to gender, race, sexual orientation, religion, national origin and other characteristics that make each one of us unique. In this uniqueness, we find the most value. Come join us!.
+					</p>
+				</div>
 			</div>
 		</div>
 	</section>
