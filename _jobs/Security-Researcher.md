@@ -34,7 +34,8 @@ slug: ''
     <li><p>You may have experience in blockchain technologies.</p></li>
     <li><p>You may have some knowledge in the Solidity programming language.</p></li>
   </ul>
-  <div class="requirements">
+</div>
+<div class="requirements">
   <h3 class="job-description-title">Benefits</h3>
   <ul>
     <li><p><b>Paid Time Off:</b> Unlimited vacation policy.</p></li>
