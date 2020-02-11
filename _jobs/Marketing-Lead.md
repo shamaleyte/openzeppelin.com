@@ -16,17 +16,17 @@ slug: ''
 <div class="requirements">
   <h3 class="job-description-title">What you'll be doing</h3>
   <br/>
-  <p>As the Marketing Lead of OpenZeppelin, you will define OpenZeppelin's marketing strategy binding together all our offerings (Open Source tools, Product and Services), as well as roll up your sleeves and execute it.</p>
+  <p>As the Marketing Lead of OpenZeppelin, you will define and execute OpenZeppelin's marketing strategy binding together all our offerings (Open Source tools, Product and Services).</p>
   <br/>
   <p>For this, you will partner with all three teams and understand our users and audiences to develop marketing priorities and effective campaign initiatives connecting all the offerings. You will drive awareness, generate leads, and grow our community through multiple programs such as content marketing, event participation, and email campaigns.</p>
   <br/>
-  <p>You will work together with a Designer, and work closely with team members, community members and external parties to create content, promote it and ensure compliance of the OpenZeppelin brand across internal and external outlets. You will work together with a Community Manager to define, implement, and manage the necessary toolset to interact with the community.</p>
+  <p>You will manage a Designer, and work closely with team members, community members and external parties to create content, promote it and ensure compliance of the OpenZeppelin brand across internal and external outlets. You will manage a Community Manager to define, implement, and manage the necessary toolset to interact with the community.</p>
 </div>
 <div class="requirements">
   <h3 class="job-description-title">Mid-term goals include</h3>
   <br/>
   <ul>
-    <li><p><b>Drive awareness, generate leads, accelerate pipeline and grow community through a cohesive marketing strategy</b> that binds all OpenZeppelin’s offerings (Open Source tools, Product, Services). Programs can include outbound email and direct mail campaigns, webinars, partner activities, content marketing, social and online marketing, and OpenZeppelin and third-party events. </p></li>
+    <li><p><b>Driving awareness, generating leads, accelerating pipeline and growing community through a cohesive marketing strategy</b> that binds all OpenZeppelin’s offerings (Open Source tools, Product, Services). Programs can include outbound email and direct mail campaigns, webinars, partner activities, content marketing, social and online marketing, and OpenZeppelin and third-party events. </p></li>
     <li><p><b>Designing and executing content strategy</b>. Identify topics and partner with team and community members to create messaging and original content that showcases OpenZeppelin’s offerings and benefits to our target audience. This may include blog posts, research and reports, guides, presentations and sales material.</p></li>
     <li><p><b>Defining an event attendance strategy</b> by sourcing, planning, and coordinating meetups, hackathons and industry events around the world. Find speaking opportunities at conferences and define actions to increase brand awareness and community engagement as a result of them.</p></li>
     <li><p><b>Coordinating product launches and company announcements</b>. Define and execute PR strategy by managing relationships with journalists and influencers, and working with a PR agency.</p></li>
@@ -43,7 +43,7 @@ slug: ''
     <li><p><b>Excellent written and verbal communication skills</b>. Proven ability to communicate complex topics with simplicity and clarity, and to communicate powerful stories to drive demand. Proven ability to create, edit and promote written and visual content.</p></li>
     <li><p><b>Ability to work and adapt in a changing and technical industry and work environment</b>. Understanding of developer audiences, blockchain technology and the general state of the crypto industry are big pluses.</p></li>
     <li><p><b>A startup mentality with a bias to action</b> and the ability to flex in a fast-paced environment</p></li>
-    <li><p><b>A knack for solving problems</b>, and a good eye for design.</p></li>
+    <li><p><b>Ability to manage a team of 2 people</b> including a technical community manager and a designer.</p></li>
     <li><p><b>Prior experience working remotely</b>. Strong personal organizational skills and a love for self-time management.</p></li>
   </ul>
   <br/>
