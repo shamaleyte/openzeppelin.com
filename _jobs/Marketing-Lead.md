@@ -38,7 +38,7 @@ slug: ''
 <div class="requirements">
   <h3 class="job-description-title">You have</h3>
   <ul>
-    <li><p><b>5+ years of previous experience working on international marketing strategies in technology companies</b>, including specific experience with content creation, content marketing and event management to generate demand.</p></li>
+    <li><p><b>3+ years of previous experience working on international marketing strategies in technology companies</b>, including specific experience with content creation, content marketing and event management to generate demand.</p></li>
     <li><p><b>Superb organization and project management skills</b>. Ability to work on and manage multiple complex projects with multiple stakeholders, at once</p></li>
     <li><p><b>Excellent written and verbal communication skills</b>. Proven ability to communicate complex topics with simplicity and clarity, and to communicate powerful stories to drive demand. Proven ability to create, edit and promote written and visual content.</p></li>
     <li><p><b>Ability to work and adapt in a changing and technical industry and work environment</b>. Understanding of developer audiences, blockchain technology and the general state of the crypto industry are big pluses.</p></li>
