@@ -18,13 +18,26 @@ slug: ''
 <div class="requirements">
   <h3 class="job-description-title">Benefits</h3>
   <ul>
-    <li><p><b>Paid Time Off:</b> Unlimited vacation policy.</p></li>
-    <li><p><b>Medical insurance:</b> Top quality insurance options for you and your family. </p></li>
-    <li><p><b>Team Events:</b> Company retreats in different locations around the world. So far we have held them in Uruguay, Argentina, Germany and the Caribbean.</p></li>
-    <li><p><b>Social events:</b> Team dinners, game night, online games as well as onsite/remote donut meetings.</p></li>
-    <li><p><b>Wellness activities:</b> monthly allowance for different wellness activities (for example: gym, yoga, etc.)</p></li>
-    <li><p><b>Meals:</b> Free lunch.</p></li>
-    <li><p><b>Coworking:</b> Unlimited access to a coworking of your choice.</p></li>
-    <li><p><b>Training:</b> Technical training, lessons in any language of your choice.</p></li>
+    <li><p>
+      Medical insurance: Top quality insurance options for you and your family. 
+    </p></li>
+    <li><p>
+      Team Events: Quarterly Company retreats in different locations around the world.
+    </p></li>
+    <li><p>
+      In-person and virtual social events.
+    </p></li>
+    <li><p>
+      Monthly allowance for wellness activities.
+    </p></li>
+    <li><p>
+      Free lunch.
+    </p></li>
+    <li><p>
+      Coworking: Unlimited access to a coworking of your choice.
+    </p></li>
+    <li><p>
+      Training: Technical training, language lessons in any language of your choice.
+    </p></li>
   </ul>
 </div>
