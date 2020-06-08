@@ -54,7 +54,7 @@ slug: ''
   <h3 class="job-description-title">You have:</h3>
   <ul>
     <li><p>
-      <b>P2+ years of experience in a Technical Account Management role</b> or similar in a technology company. Additionally, experience in pre and post-sales customer support.
+      <b>2+ years of experience in a Technical Account Management role</b> or similar in a technology company. Additionally, experience in pre and post-sales customer support.
     </p></li>
     <li><p>
       <b>Software development background or knowledge</b> that will enable you to understand clients needs and engage in technical conversations.
