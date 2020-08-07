@@ -180,15 +180,6 @@ layout: default
 		font-size: 1rem;
 		line-height: 1.8;
 		font-weight: 400;
-
-	}
-
-	.page-security .s-form#security-audit-form {
-		display: none;
-	}
-
-	.page-security .s-form.active#security-audit-form {
-		display: block;
 	}
 
 	.page-security .checklist {
@@ -204,18 +195,14 @@ layout: default
 	.page-security .audit-reports .audit-grid {
 		padding: 1.2rem;
 	}
-
-	.page-security .projects-grid {
-		align-items: center;
-		justify-items: center;
+	
+	.request-button {
+		padding-top: 2rem;
 	}
-
-	.page-security .projects-grid .col {
-		max-width: 500px;
-	}
-
-	.page-security .sa-projects .heading {
-		max-width: 260px;
+		
+	.request-button .cta {
+	    padding-right: 2.5rem;
+    	padding-left: 2.5rem;
 	}
 
 	@media (min-width: 500px) {
@@ -225,12 +212,6 @@ layout: default
 
 		.audit-reports .audit-grid .row {
 		padding: 10px 0;
-		}
-	}
-
-	@media (min-width: 600px) {
-		.page-security .sa-projects .heading {
-			max-width: 100%;
 		}
 	}
 
@@ -291,7 +272,7 @@ layout: default
 			</div>
 
 			<div class="p-menu request-audit-container">
-				<a class="btn btn--secondary-mutted request-audit-link request-audit-btn" href="#request-audit">Request an
+				<a class="btn btn--secondary-mutted request-audit-link request-audit-btn" href="https://openzeppelin.com/request/">Request an
 					audit</a>
 			</div>
 
@@ -400,15 +381,17 @@ layout: default
 		{% include partners.html %}
 	</section>
 
-	<section class="section section--gray sa-projects">
+	<section class="section section--gray">
 		<div class="container">
 			<div class="section-header">
 				<h2 class="heading">Request a security audit</h2>
 				<p class="description">
 					Work with the leading smart contract security audit team to secure your code
 				</p>
+				<div class="request-button">
+					<a href="https://openzeppelin.com/request/" class="btn cta">Request an Audit</a>
+				</div>
 			</div>
-			{% include security-card.html %}
 		</div>
 	</section>
 </main>
