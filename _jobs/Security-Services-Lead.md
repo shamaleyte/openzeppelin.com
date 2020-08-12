@@ -127,30 +127,3 @@ slug: ''
     </p></li>
   </ul>
 </div>
-
-<div class="requirements">
-  <h3 class="job-description-title">Benefits</h3>
-  <ul>
-    <li><p>
-      Medical insurance: Top quality insurance options for you and your family. 
-    </p></li>
-    <li><p>
-      Team Events: Company retreats in different locations around the world.
-    </p></li>
-    <li><p>
-      In-person and virtual social events.
-    </p></li>
-    <li><p>
-      Monthly allowance for wellness activities.
-    </p></li>
-    <li><p>
-      Free lunch.
-    </p></li>
-    <li><p>
-      Coworking: Unlimited access to a coworking of your choice.
-    </p></li>
-    <li><p>
-      Training: Technical training, language lessons in any language of your choice.
-    </p></li>
-  </ul>
-</div>
