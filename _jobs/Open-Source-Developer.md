@@ -1,6 +1,7 @@
 ---
 layout: job
 title: 'Open Source Developer'
+excerpt: 'As an Open Source Developer you will join a team focused on building and maintaining our open source projects.'
 location: 'Global'
 type: 'Full Time'
 team: 'Product'
