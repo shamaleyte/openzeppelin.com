@@ -2,7 +2,7 @@
 layout: job
 title: 'Security Researcher'
 excerpt: 'As a Security Researcher, you will analyze the security of smart contracts and decentralized applications while conducting open-ended research around cutting edge blockchain technologies.'
-location: 'Global'
+location: 'Remote'
 type: 'Full Time'
 team: 'Research'
 navigation_weight: 0
