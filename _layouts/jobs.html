@@ -146,16 +146,6 @@ layout: default
 			</div>
 
 			<div class="section-content">
-				<!-- Hide filters
-				<div class="positions-list-container">
-					<ul class="positions-list">
-						<li class="positions-list-item active" data-id="all-positions">All Positions</li>
-						<li class="positions-list-item" data-id="engineering">Engineering</li>
-						<li class="positions-list-item" data-id="communications">Communications</li>
-					</ul>
-				</div>
-				-->
-
 				<div class="opening-box-listing" id="all-positions">
 					<ul class="job-card-list">
 						{% for job in site.jobs %}
@@ -173,54 +163,16 @@ layout: default
 						{% endfor %}
 					</ul>
 				</div>
-
-				<div class="opening-box-listing" id="engineering">
-					<ul class="job-card-list">
-						{% for job in site.jobs %}
-						{% if job.tags contains 'engineering' %}
-						<li class="job-card">
-							<a class="job-card-link" href="{{ job.url }}">
-								<div class="job-card-content">
-									<small class="job-card-location">{{ job.location | slice: 0, 80 }}</small>
-									<h3 class="job-card-title">{{ job.title }}</h3>
-								</div>
-								<div class="job-card-action">
-									<span class="arrow">
-										<img src="../images/ic_arrow_right_blue.svg" />
-									</span>
-								</div>
-							</a>
-						</li>
-						{% endif %}
-						{% endfor %}
-					</ul>
-				</div>
-
-				<div class="opening-box-listing" id="communications">
-					<ul class="job-card-list">
-						{% for job in site.jobs %}
-						{% if job.tags contains 'communications' %}
-						<li class="job-card">
-							<a class="job-card-link" href="{{ job.url }}">
-								<div class="job-card-content">
-									<small class="job-card-location">{{ job.location | slice: 0, 80 }}</small>
-									<h3 class="job-card-title">{{ job.title }}</h3>
-								</div>
-								<div class="job-card-action">
-									<span class="arrow">
-										<img src="../images/ic_arrow_right_blue.svg" />
-									</span>
-								</div>
-							</a>
-						</li>
-						{% endif %}
-						{% endfor %}
-					</ul>
+			</div>
+			<div class="container">
+				<div class="section-header">
+					<br>
+					<h4 class="heading">Don’t see the right role for you?</h4>
+					<p class="description">Please <a href=" https://airtable.com/shrqTXBRIBFCnXD3i" target="_blank">submit your resume</a> and tell us how you would like to contribute and why you are a good fit. We’ll keep your resume and reach out if any opportunities arise in the future.</p>
 				</div>
 			</div>
 		</div>
 	</section>
-
 
 	<section class="section section-hiring-process">
 		<div class="container">
@@ -678,7 +630,7 @@ layout: default
 
 	.section.section-jobs-openings .section-content,
 	.section.job-opening-role {
-		padding: 20px 0 0;
+		padding: 2rem 0;
 		display: flex;
 		flex-direction: column;
 	}
