@@ -1,0 +1,39 @@
+<style type="text/css">
+
+	.defender-grid {
+		display: grid;
+		grid-template-columns: repeat(5, 13rem);
+		grid-template-rows: repeat(2, 6rem);
+		align-items: center;
+		justify-items: center;
+		margin: auto;
+	}
+
+	.defender-grid img {
+		max-width: 10rem;
+		height: auto;
+		max-height: 2.4rem;
+		margin: 1rem;
+	}
+
+	@media (max-width: 768px) {
+		.defender-grid { 
+			grid-template-rows: repeat(5, 7rem);
+    		grid-template-columns: repeat(2, 50%);
+		}
+	}
+
+</style>
+
+<div class="defender-grid">
+	<img src="../images/logos/external/dydx.svg" />
+	<img src="../images/logos/external/balancer.png" />
+	<img src="../images/logos/external/opyn.png" />
+	<img src="../images/logos/external/compound.png" />
+	<img src="../images/logos/external/props.svg" />
+	<img src="../images/logos/external/foundation.png" />
+	<img src="../images/logos/external/pooltogether.svg" />
+	<img src="../images/logos/external/aave.svg" />
+	<img src="../images/logos/external/endaoment.svg" />
+	<img src="../images/logos/external/optimism.png" />
+</div>

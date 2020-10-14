@@ -1,0 +1,261 @@
+---
+layout: default
+---
+<style type="text/css">
+
+	.page-defender .hero {
+		background: #F9FAFB;
+		max-height: 76vh;
+		clip-path: polygon(0 0%, 100% 0, 100% 90%, 0 100%);
+	}
+
+	.hero .container {
+		display: flex;
+		flex-direction: row;
+	}
+	.hero .container div {
+		width: 50%;
+		text-align: left;
+	}
+
+	.hero .content {
+		padding-bottom: 2rem;
+	}
+
+	.hero .description {
+		margin-bottom: 3rem;
+    text-align: left;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: #575C66;
+   }
+
+	.hero .container img {
+		max-width: 56rem;
+		float: left;
+		max-height: 75vh;
+		margin-top: 1rem;
+		padding-left: 2rem;
+	}
+
+	.defender-aliance { padding: 8rem 0; }
+	.defender-aliance h6,
+	.testimonials h6 {
+		font-size: 14px;
+		font-weight: bold;
+		letter-spacing: 0em;
+		text-align: center;
+		text-transform: uppercase;
+		color: #818998;
+		margin-bottom: 3rem;
+	}
+
+	/* Features section */
+	
+	.page-defender .flex {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		align-content: center;
+	}
+
+	.page-defender .flex div { width: 29rem; }
+
+	.page-defender .features {
+		background: #F9FAFB;
+		clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+		padding: 6rem 1rem;
+	}
+
+	.page-defender .features.inverted { background: white; }
+	.description.max-width { max-width: 25rem;}
+
+	.problem,
+	.solution {
+		font-family: 'silka';
+		font-weight: bold;
+		margin: 1rem 0;
+		line-height: 18px;
+		padding-left: 22px;
+	}
+
+	.problem:before,
+	.solution:before { 
+		content:'';
+		background: '';
+		height: 16px;
+		width: 16px;
+		position: absolute;
+		margin-left: -22px;
+	}
+
+	.problem { color: #AA0909; }
+	.problem:before { background: url('../images/defender/ic-problem.svg'); }
+
+	.solution { color: #1F9332; margin-top: 3rem; }
+	.solution:before { background: url('../images/defender/ic-solution.svg'); }
+
+
+	.image-app {
+		width: 32rem;
+		max-width: 100%;
+		height: auto;
+		margin-top: 1rem;
+	}
+
+	.pricing { 
+		padding: 2rem 0 7rem; 
+		background-color: #F9FAFB; 
+	}
+	.pricing .container { 
+		text-align: center; 
+		padding: 1rem;
+	}
+
+	.pricing .heading {
+		margin-bottom: 2rem;
+	}
+	
+	.testimonials {
+    padding: 7rem 0;
+    background-color: #F9FAFB;
+    margin-top: 3rem;
+	}
+
+	@media (max-width: 768px) {
+		.page-defender .flex { flex-direction: column; }
+		.page-defender .flex div { width: 100%; }
+		.page-defender .features { clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%); }
+		
+		.page-defender .hero { min-height: 76vh; }
+		.hero .container { 
+			flex-direction: column; 
+	    justify-content: flex-start;
+	    align-items: center;
+		}
+		.hero .container div { width: 100%; }
+		.hero .container img {
+			width: 100%;
+			margin: 0;
+			padding-left: 0;
+		}
+	}
+</style>
+
+<main class="page page-defender">
+
+	<nav class="p-nav p-nav--white" id="new-sub-nav">
+		<div class="container">
+			<div class="p-logo">
+				<!-- Add defender logo-->
+				<b>Defender</b>
+			</div>
+			{% include defender-menu.html %}
+		</div>
+	</nav>
+
+
+	<section class="section hero">
+		<div class="container">
+			<div class="content">
+				<h1 class="heading fIu">Ship faster with the security of OpenZeppelin Defender</h1>
+				<p class="description fIu">Automate your Ethereum operations to deliver high-quality products faster with lower risk to users.</p>
+				<a href="https://openzeppelin.com/apply/" class="btn cta fIu">Sign Up for Free</a>
+			</div>
+			<div>
+				<img class="" alt="Defender inferface for creating a Relayer" src="../images/defender/hero2.png" />
+			</div>
+		</div>
+	</section>
+
+	<section class="defender-aliance">
+		<div class="container">
+			<h6>Trusted by top teams in the space</h6>
+			{% include defender-alliance.html %}
+		</div>
+	</section>
+
+	<section>
+
+		<!-- Adim -->
+		<div class="features">
+			<div class="container flex">
+				<div>
+					<p class="problem">Problem</p>
+					<p class="description max-width">Administration mistakes on protocols and applications put user funds at risk</p>
+
+					<p class="solution">Solution</p>
+					<h2 class="heading">Automate your smart contract administration with a clean UI</h2>
+					<p class="description">Easily manage your smart contract administration including access controls, multi-sig management (it works with Gnosis Safe or others), upgrades, pausing, whitelisting, and more.</p>
+				</div>
+				<img class="image-app" alt="Defender inferface for approving an upgrade proposal" src="../images/defender/admin.png" />
+			</div>
+		</div>
+		
+		<!-- Relay -->
+		<div class="features inverted">
+			<div class="container flex">
+				<div>
+					<p class="problem">Problem</p>
+					<p class="description max-width">Teams are using third-party or homegrown transaction infrastructure that is unreliable or insecure</p>
+
+					<p class="solution">Solution</p>
+					<h2 class="heading">Build with private and secure transaction infrastructure </h2>
+					<p class="description">Use secure relayers with support for testnets, mainnet, layer 2 and sidechains, embedded key vaults, API key management, automatic retry, meta- transactions, gas management and gas fee optimization.</p>
+				</div>
+				<img class="image-app" alt="Defender inferface for creating a Relayer" src="../images/defender/relay_ui.png" />
+			</div>
+		</div>
+
+		<!-- Autotaks -->
+		<div class="features">
+			<div class="container flex">
+				<div>
+					<p class="problem">Problem</p>
+					<p class="description max-width">Homegrown BOTs and cron jobs are tedious to maintain and a target for hackers</p>
+
+					<p class="solution">Solution</p>
+					<h2 class="heading">Create automated scripts to call your smart contracts</h2>
+					<p class="description">Create and run scripts in a serverless environment that call your smart contracts and other web services, leveraging Defender Relayers for reliable transaction delivery.</p>
+				</div>
+				<img class="image-app" alt="Defender inferface for reviewing an autotask run" src="../images/defender/autotasks.png" />
+			</div>
+		</div>
+
+		<!-- Advisor -->
+		<div class="features inverted">
+			<div class="container flex">
+				<div>
+					<p class="problem">Problem</p>
+					<p class="description max-width">Protocol complexity is increasing leading to new vulnerabilities that teams are not aware of</p>
+
+					<p class="solution">Solution</p>
+					<h2 class="heading">Quickly implement security best practices</h2>
+					<p class="description">A knowledgebase of security best practices across development, testing, monitoring and operations along with a methodology to integrate into your DevOps processes.</p>
+				</div>
+				<img class="image-app" alt="Defender inferface for navigating the knowledgebase of security best practices" src="../images/defender/advisor.png" />
+			</div>
+		</div>
+
+	</section>
+	
+	<section class="testimonials">
+		<div class="container">
+			<h6>What our users are saying</h6>
+			{% include defender-quote.html %}
+		</div>
+	</section>
+
+	<section class="pricing">
+		<div class="container">
+			<h2 class="heading">Get early access</h2>
+			<!-- p class="description">Start using Defender text</p-->
+		</div>
+		{% include pricing-grid.html %}
+	</section>
+</main>
+
+<script src="/js/typed.min.js"></script>
+<script src="/js/fixedSubMenu.js"></script>
+<script src="/js/product-page.js"></script>
