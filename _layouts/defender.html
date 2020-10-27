@@ -3,6 +3,10 @@ layout: default
 ---
 <style type="text/css">
 
+  .logo {
+    max-height: 2rem;
+  }
+  
 	.page-defender .hero {
 		background: #F9FAFB;
 		max-height: 76vh;
@@ -51,6 +55,12 @@ layout: default
 	}
 
 	/* Features section */
+
+  .features .centered {
+    text-align: center;
+    margin: 6rem auto;
+    max-width: 36rem;
+}
 	
 	.page-defender .flex {
 		display: flex;
@@ -68,8 +78,28 @@ layout: default
 		padding: 6rem 1rem;
 	}
 
-	.page-defender .features.inverted { background: white; }
-	.description.max-width { max-width: 25rem;}
+	.page-defender .features.inverted { 
+    background: white;
+  }
+
+  .page-defender .features.inverted .flex { 
+    flex-direction: row-reverse;
+  }
+
+	.page-defender .features .app {
+    color: #4E5DE4;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .page-defender .features .app i {
+    font-size: 1.25rem;
+    margin-right: .5rem;
+  }
+
+  .description.max-width { max-width: 25rem;}
 
 	.problem,
 	.solution {
@@ -97,11 +127,56 @@ layout: default
 	.solution:before { background: url('../images/defender/ic-solution.svg'); }
 
 
-	.image-app {
+	.video-app {
 		width: 32rem;
 		max-width: 100%;
 		height: auto;
 		margin-top: 1rem;
+	}
+
+	.tabbed {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		align-items: center;
+		grid-gap: 1rem;
+	}
+
+	.tabbed > [type=radio] {
+		display: none;
+	}
+
+	.tabbed > label {
+		font-family: 'silka';
+		font-weight: bold;
+		font-variant: small-caps;
+		text-transform: lowercase;
+		text-align: center;
+		cursor: pointer;
+		padding: .5em;
+		color: #4E5DE4;
+		justify-self: start;
+	}
+
+	.tabbed > label:nth-of-type(odd) {
+		justify-self: end;
+	}
+
+	.tabbed > [type=radio]:not(:checked) + label {
+		color: #818998;
+	}
+
+	.tabbed-tab-content {
+		grid-column: 1 / -1;
+		grid-row: 1 / 1;
+	}
+
+	.tabbed-tab-content img {
+		max-width: 100%
+	}
+
+	.tabbed > [type=radio]:not(:checked) + label + .tabbed-tab-content {
+		visibility: hidden;
+		z-index: -1;
 	}
 
 	.pricing { 
@@ -124,7 +199,7 @@ layout: default
 	}
 
 	@media (max-width: 768px) {
-		.page-defender .flex { flex-direction: column; }
+		.page-defender .flex, .page-defender .features.inverted .flex { flex-direction: column; }
 		.page-defender .flex div { width: 100%; }
 		.page-defender .features { clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%); }
 		
@@ -149,7 +224,7 @@ layout: default
 		<div class="container">
 			<div class="p-logo">
 				<!-- Add defender logo-->
-				<b>Defender</b>
+        <img class="logo" alt="Defender logo" src="../images/logos/openzeppelin/oz_defender_dark.svg" />
 			</div>
 			{% include defender-menu.html %}
 		</div>
@@ -164,7 +239,7 @@ layout: default
 				<a href="https://openzeppelin.com/apply/" class="btn cta fIu">Sign Up for Free</a>
 			</div>
 			<div>
-				<img class="" alt="Defender inferface for creating a Relayer" src="../images/defender/hero2.png" />
+				<img alt="Defender inferface" src="../images/defender/hero_low.png" />
 			</div>
 		</div>
 	</section>
@@ -180,31 +255,69 @@ layout: default
 
 		<!-- Adim -->
 		<div class="features">
+      <h1 class="heading centered">The first secure operations platform for Ethereum</h1>
 			<div class="container flex">
 				<div>
-					<p class="problem">Problem</p>
-					<p class="description max-width">Administration mistakes on protocols and applications put user funds at risk</p>
-
-					<p class="solution">Solution</p>
-					<h2 class="heading">Automate your smart contract administration with a clean UI</h2>
-					<p class="description">Easily manage your smart contract administration including access controls, multi-sig management (it works with Gnosis Safe or others), upgrades, pausing, whitelisting, and more.</p>
+					<div class="app"><i class="material-icons">tab</i><span>Admin</span></div>
+					<h2 class="heading">
+						Automate and secure all your smart contract administration
+					</h2>
+					<p class="description">
+						Administration mistakes on protocols and applications put user funds at risk. With Defender Admin, you can seamlessly manage all smart contract administration including access controls, upgrades, and pausing. Works with popular multi-sigs including Gnosis Safe.
+					</p>
 				</div>
-				<img class="image-app" alt="Defender inferface for approving an upgrade proposal" src="../images/defender/admin.png" />
+
+				<div class="tabbed">
+					<input type="radio" id="admin-tab-1" name="admin-tab-group" checked>
+					<label for="admin-tab-1">Admin Actions</label>
+					<div class="tabbed-tab-content">
+						<video class="video-app" autoplay loop muted playsinline>
+							<source src="../images/defender/admin_actions.webm" type="video/webm" />
+							<source src="../images/defender/admin_actions.mp4" type="video/mp4" />
+						</video>
+					</div>
+					<input type="radio" id="admin-tab-2" name="admin-tab-group">
+					<label for="admin-tab-2">Upgrades</label>
+					<div class="tabbed-tab-content">
+						<video class="video-app" autoplay loop muted playsinline>
+							<source src="../images/defender/admin_upgrade.webm" type="video/webm" />
+							<source src="../images/defender/admin_upgrade.mp4" type="video/mp4" />
+						</video>
+					</div>
+				</div>
 			</div>
 		</div>
+
+
 		
 		<!-- Relay -->
 		<div class="features inverted">
 			<div class="container flex">
 				<div>
-					<p class="problem">Problem</p>
-					<p class="description max-width">Teams are using third-party or homegrown transaction infrastructure that is unreliable or insecure</p>
-
-					<p class="solution">Solution</p>
-					<h2 class="heading">Build with private and secure transaction infrastructure </h2>
-					<p class="description">Use secure relayers with support for testnets, mainnet, layer 2 and sidechains, embedded key vaults, API key management, automatic retry, meta- transactions, gas management and gas fee optimization.</p>
+					<div class="app"><i class="material-icons">track_changes</i><span>Relay</span></div>
+					<h2 class="heading">
+						Build with private and secure transaction infrastructure 
+					</h2>
+					<p class="description">
+						Don’t spend time implementing  third-party or homegrown transaction infrastructure that is unreliable or insecure. Use Defender Relay to quickly implement private relayers with support for testnets, mainnet, layer 2 and sidechains. Increase user security with embedded key vaults, API key management, and meta-transactions.
+					</p>
 				</div>
-				<img class="image-app" alt="Defender inferface for creating a Relayer" src="../images/defender/relay_ui.png" />
+				
+				<div class="tabbed">
+					<input type="radio" id="relay-tab-1" name="relay-tab-group" checked>
+					<label for="relay-tab-1">Interface</label>
+					<div class="tabbed-tab-content">
+						<video class="video-app" autoplay loop muted playsinline>
+							<source src="../images/defender/relay.webm" type="video/webm" />
+							<source src="../images/defender/relay.mp4" type="video/mp4" />
+						</video>
+					</div>
+					<input type="radio" id="relay-tab-2" name="relay-tab-group">
+					<label for="relay-tab-2">Terminal</label>
+					<div class="tabbed-tab-content">
+						<img src="../images/defender/relay-terminal.svg" >
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -212,14 +325,18 @@ layout: default
 		<div class="features">
 			<div class="container flex">
 				<div>
-					<p class="problem">Problem</p>
-					<p class="description max-width">Homegrown BOTs and cron jobs are tedious to maintain and a target for hackers</p>
-
-					<p class="solution">Solution</p>
-					<h2 class="heading">Create automated scripts to call your smart contracts</h2>
-					<p class="description">Create and run scripts in a serverless environment that call your smart contracts and other web services, leveraging Defender Relayers for reliable transaction delivery.</p>
+					<div class="app"><i class="material-icons">repeat</i><span>Autotasks</span></div>
+					<h2 class="heading">
+						Create automated scripts to call your smart contracts
+					</h2>
+					<p class="description">
+						Homegrown bots and cron jobs are tedious to maintain and a target for hackers. With Defender Autotasks, you can easily create and run scripts in a serverless environment that call your smart contracts and other web services. Automate your operations and lower attack risk. 
+					</p>
 				</div>
-				<img class="image-app" alt="Defender inferface for reviewing an autotask run" src="../images/defender/autotasks.png" />
+				<video class="video-app" autoplay loop muted playsinline>
+  				<source src="../images/defender/autotasks.webm" type="video/webm" />
+  				<source src="../images/defender/autotasks.mp4" type="video/mp4" />
+				</video>
 			</div>
 		</div>
 
@@ -227,14 +344,18 @@ layout: default
 		<div class="features inverted">
 			<div class="container flex">
 				<div>
-					<p class="problem">Problem</p>
-					<p class="description max-width">Protocol complexity is increasing leading to new vulnerabilities that teams are not aware of</p>
-
-					<p class="solution">Solution</p>
-					<h2 class="heading">Quickly implement security best practices</h2>
-					<p class="description">A knowledgebase of security best practices across development, testing, monitoring and operations along with a methodology to integrate into your DevOps processes.</p>
+					<div class="app"><i class="material-icons">policy</i><span>Advisor</span></div>
+					<h2 class="heading">
+						Quickly implement security best practices
+					</h2>
+					<p class="description">
+						Protocol complexity is increasing, leading to new vulnerabilities that you might not be aware of. Use Defender Advisor knowledgebase to stay up to date with the latest security best practices. Use step-by-step guides to implement them across development, testing, monitoring and operations.
+					</p>
 				</div>
-				<img class="image-app" alt="Defender inferface for navigating the knowledgebase of security best practices" src="../images/defender/advisor.png" />
+				<video class="video-app" autoplay loop muted playsinline>
+  				<source src="../images/defender/advisor.webm" type="video/webm" />
+  				<source src="../images/defender/advisor.mp4" type="video/mp4" />
+				</video>
 			</div>
 		</div>
 
@@ -242,7 +363,7 @@ layout: default
 	
 	<section class="testimonials">
 		<div class="container">
-			<h6>What our users are saying</h6>
+			<h6>Developers love OpenZeppelin Defender</h6>
 			{% include defender-quote.html %}
 		</div>
 	</section>
@@ -250,7 +371,6 @@ layout: default
 	<section class="pricing">
 		<div class="container">
 			<h2 class="heading">Start using OpenZeppelin Defender</h2>
-			<!-- p class="description">Start using Defender text</p-->
 		</div>
 		{% include pricing-grid.html %}
 	</section>
