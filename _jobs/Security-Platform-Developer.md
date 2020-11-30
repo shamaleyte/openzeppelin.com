@@ -19,7 +19,7 @@ slug: ''
     As a full stack Ethereum developer, you will join the team working on <a href="https://openzeppelin.com/defender/">Defender</a>, a new services platform for operational security of smart contract systems. Defender was publicly launched in October, and it’s already being used by top teams in the space such as Compound, Aave, dYdX, PoolTogether, Opyn, Notional. 
   </p>
   <br>
-  </p>
+  <p>
 Behind the scenes, Defender is built as a serverless application running on AWS with plans for decentralized self-hosting in the future. The entire application is coded in Typescript, and we use Svelte for the frontend.
  </p>
   <br>
