@@ -78,6 +78,10 @@ layout: default
 		padding: 6rem 1rem;
 	}
 
+	.page-defender .features:last-of-type {
+		clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+	}
+
 	.page-defender .features.inverted { 
     background: white;
   }
@@ -197,15 +201,16 @@ layout: default
 	}
 	
 	.testimonials {
-    padding: 7rem 0;
-    background-color: #F9FAFB;
-    margin-top: 3rem;
+		margin-top: 3rem;
 	}
 
 	@media (max-width: 768px) {
 		.page-defender .flex, .page-defender .features.inverted .flex { flex-direction: column; }
-		.page-defender .flex div { width: 100%; }
+		.page-defender .flex div { width: 100% }
 		.page-defender .features { clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%); }
+		.page-defender .features:last-of-type { clip-path: polygon(0 2%, 100% 0, 100% 100%, 0 100%); }
+
+		.tabbed{ text-align: center; }
 		
 		.page-defender .hero { min-height: 76vh; }
 		.hero .container { 
@@ -220,6 +225,11 @@ layout: default
 			padding-left: 0;
 		}
 	}
+
+	@media (min-device-width: 1024px) and (max-device-width: 1366px) {
+		.page-defender .features:last-of-type { clip-path: polygon(0 2%, 100% 0, 100% 100%, 0 100%) }
+	}
+
 </style>
 
 <main class="page page-defender">
@@ -344,8 +354,27 @@ layout: default
 			</div>
 		</div>
 
-		<!-- Advisor -->
+		<!-- Sentinels -->
 		<div class="features inverted">
+			<div class="container flex">
+				<div>
+					<div class="app"><i class="material-icons">flare</i><span>Sentinels</span></div>
+					<h2 class="heading">
+						Monitor and respond to smart contract exploits
+					</h2>
+					<p class="description">
+						Use Defender Sentinels to automatically monitor and respond to events, functions, and transaction parameters on your smart contracts. With full Autotask integration, you can add circuit breakers or automated actions so your team can respond to attacks within seconds and receive notifications via email, Slack, Telegram, or Discord.
+					</p>
+				</div>
+				<video class="video-app" autoplay loop muted playsinline>
+  				<source src="../images/defender/sentinels.webm" type="video/webm" />
+  				<source src="../images/defender/sentinels.mp4" type="video/mp4" />
+				</video>
+			</div>
+		</div>
+
+		<!-- Advisor -->
+		<div class="features">
 			<div class="container flex">
 				<div>
 					<div class="app"><i class="material-icons">policy</i><span>Advisor</span></div>
@@ -362,21 +391,23 @@ layout: default
 				</video>
 			</div>
 		</div>
-
-	</section>
 	
-	<section class="testimonials">
-		<div class="container">
-			<h6>Developers love OpenZeppelin Defender</h6>
-			{% include defender-quote.html %}
+		<div class="features inverted">
+			<div class="testimonials">
+				<div class="container">
+					<h6>Developers love OpenZeppelin Defender</h6>
+					{% include defender-quote.html %}
+				</div>
+			</div>
 		</div>
-	</section>
 
-	<section class="pricing">
-		<div class="container">
-			<h2 class="heading">Start using OpenZeppelin Defender</h2>
-		</div>
-		{% include pricing-grid.html %}
+		<div class="features">
+			<div class="pricing">
+				<div class="container">
+					<h2 class="heading">Start using OpenZeppelin Defender</h2>
+				</div>
+				{% include pricing-grid.html %}
+			</div>
 	</section>
 </main>
 
