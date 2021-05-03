@@ -1,320 +1,337 @@
 <style type="text/css">
+  .new-nav {
+    position: absolute;
+    height: 70px;
+    width: 100%;
+    background-color: #fefefe;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    box-shadow: none;
+    font-family: "silka";
+  }
 
-.new-nav {
-	position: absolute;
-	height: 70px;
-	width: 100%;
-	background-color: #FEFEFE;
-	box-sizing: border-box;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 5;
-	box-shadow: none;
-	font-family: 'silka';
-}
+  .new-nav .grid > .row {
+    height: 100%;
+    margin: 0;
+  }
 
-.new-nav .grid > .row {
-	height: 100%;
-	margin: 0;
-}
-
-.new-nav.new-nav--fixed {
+  .new-nav.new-nav--fixed {
     top: 0px;
-	position: fixed;
+    position: fixed;
     box-shadow: rgb(255, 255, 255) 0px -15px, rgba(0, 0, 0, 0.1) 0px 0px 15px;
-}
+  }
 
-.new-nav.new-nav--fixed > .container {
-	border-bottom: 0;
-	height: 100%;
-}
+  .new-nav.new-nav--fixed > .container {
+    border-bottom: 0;
+    height: 100%;
+  }
 
-.new-nav > .container {
-	border-bottom: 1px solid rgba(0,0,0,.1);
-	box-shadow: 0 -12px -40px rgba(0, 0, 0, .12);
-	height: 100%;
-}
+  .new-nav > .container {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -12px -40px rgba(0, 0, 0, 0.12);
+    height: 100%;
+  }
 
-.new-nav .box-logo h1 {
-	width: 100%;
-}
+  .new-nav .box-logo h1 {
+    width: 100%;
+  }
 
-.new-nav .box-logo > a {
-	width: 100%;
+  .new-nav .box-logo > a {
+    width: 100%;
     display: flex;
     align-items: center;
-	height: 100%;
+    height: 100%;
     line-height: 100%;
-}
+  }
 
-.new-nav .box-logo, .new-nav .box-menu {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	height: 100%;
-}
+  .new-nav .box-logo,
+  .new-nav .box-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
 
-.new-nav .box-logo {
-	justify-content: flex-start;
-	max-width: 150px;
-}
+  .new-nav .box-logo {
+    justify-content: flex-start;
+    max-width: 150px;
+    position: relative;
+  }
 
-.new-nav .box-logo svg {
-	transition: transform 0.4s ease, margin 0.4s ease;
-	transform: scale(0.8);
-	margin-left: -10px;
-	margin-top: 2px;
-}
+  .new-nav .box-logo svg {
+    transition: transform 0.4s ease, margin 0.4s ease;
+    transform: scale(0.8);
+    margin-left: -10px;
+    margin-top: 2px;
+  }
 
-.new-nav .box-logo .label {
-	display: none;
-	background-color: #EBEBEF;
-	border-radius: 100px;
-	height: 26px;
-	line-height: 27px;
-	font-size: 0.79rem;
-	white-space: nowrap;
-	width: 110px;
-	text-align: center;
-	margin: 0 1rem;
-	color: inherit;
-	display: inline-block;
-	padding: 0 10px;
-	border-radius: 12px;
-}
+  .new-nav .box-logo .hiring-label {
+    position: absolute;
+    background-color: tomato;
+    color: white;
+    right: -100px;
+    top: 5px;
+    padding: 5px;
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
 
-.new-nav .box-logo .label:hover {
-	background-color: #e2e2e2;
-}
+  .hiring-label a,
+  .hiring-label a:hover,
+  .hiring-label a:visited {
+    color: white;
+  }
+  .new-nav .box-logo .label {
+    display: none;
+    background-color: #ebebef;
+    border-radius: 100px;
+    height: 26px;
+    line-height: 27px;
+    font-size: 0.79rem;
+    white-space: nowrap;
+    width: 110px;
+    text-align: center;
+    margin: 0 1rem;
+    color: inherit;
+    display: inline-block;
+    padding: 0 10px;
+    border-radius: 12px;
+  }
 
-.new-nav .box-menu {
-	display: none;
-	flex-grow: 1;
-}
+  .new-nav .box-logo .label:hover {
+    background-color: #e2e2e2;
+  }
 
-.new-nav .box-menu {
-	line-height: 70px;
-	height: 70px;
-}
+  .new-nav .box-menu {
+    display: none;
+    flex-grow: 1;
+  }
 
-.new-nav .box-menu .box-menu-list {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: flex-end;
-	width: 100%;
-	margin-left: 5px;
-}
+  .new-nav .box-menu {
+    line-height: 70px;
+    height: 70px;
+  }
 
-.new-nav .box-menu .box-menu-list .item {
-	margin-right: 40px;
-	position: relative;
-}
+  .new-nav .box-menu .box-menu-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin-left: 5px;
+  }
 
-.new-nav .box-menu .box-menu-list .item > a {
-	cursor: pointer;
-	transition: color 0.4s ease;
-	color: #282846;
-	display: inline-block;
-	height: 100%;
-}
+  .new-nav .box-menu .box-menu-list .item {
+    margin-right: 40px;
+    position: relative;
+  }
 
-.new-nav .box-menu .box-menu-list .item a:hover {
-	cursor: pointer;
-	color: #6d6d79;
-}
+  .new-nav .box-menu .box-menu-list .item > a {
+    cursor: pointer;
+    transition: color 0.4s ease;
+    color: #282846;
+    display: inline-block;
+    height: 100%;
+  }
 
-.new-nav .box-menu .box-menu-list .item:last-child {
+  .new-nav .box-menu .box-menu-list .item a:hover {
+    cursor: pointer;
+    color: #6d6d79;
+  }
+
+  .new-nav .box-menu .box-menu-list .item:last-child {
     margin-right: 0;
-}
+  }
 
-.new-nav .sub-nav {
-	position: absolute;
-	transform: translateX(-50%);
-	top: 0;
-	left: 50%;
-	color: rgba(0,0,0,.86);
+  .new-nav .sub-nav {
+    position: absolute;
+    transform: translateX(-50%);
+    top: 0;
+    left: 50%;
+    color: rgba(0, 0, 0, 0.86);
     border-radius: 3px;
     margin-top: 0;
     position: absolute;
     top: 30px;
-    transition: visibility 0s .2s, opacity .2s, margin-top .2s;
+    transition: visibility 0s 0.2s, opacity 0.2s, margin-top 0.2s;
     pointer-events: none;
-	padding: 25px 20px;
-	z-index: 3;
-	background: #FFFFFF;
-	box-shadow: 0 10px 20px 0 rgba(0,0,0,0.20);
-	line-height: normal;
-	visibility: hidden;
-	opacity: 0;
-}
+    padding: 25px 20px;
+    z-index: 3;
+    background: #ffffff;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+    line-height: normal;
+    visibility: hidden;
+    opacity: 0;
+  }
 
-.new-nav .item .sub-nav .sub-nav-item-container:hover > a {
-	color: inherit;
-	cursor: pointer;
-}
+  .new-nav .item .sub-nav .sub-nav-item-container:hover > a {
+    color: inherit;
+    cursor: pointer;
+  }
 
-.new-nav .box-menu .item .sub-nav .sub-nav-item-container:hover svg #icon {
-	fill: #4e5ee4;
-}
+  .new-nav .box-menu .item .sub-nav .sub-nav-item-container:hover svg #icon {
+    fill: #4e5ee4;
+  }
 
-.new-nav .sub-nav::after {
-	background-color: white;
-	content: "";
-	opacity: 1;
-	transform: rotate(45deg);
-	transition: visibility 0s .2s,opacity .2s;
-	visibility: visible;
-	width: 12px;
-	height: 12px;
-	top: -6px;
-	left: 50%;
-	position: absolute;
-	z-index: -1;
-}
+  .new-nav .sub-nav::after {
+    background-color: white;
+    content: "";
+    opacity: 1;
+    transform: rotate(45deg);
+    transition: visibility 0s 0.2s, opacity 0.2s;
+    visibility: visible;
+    width: 12px;
+    height: 12px;
+    top: -6px;
+    left: 50%;
+    position: absolute;
+    z-index: -1;
+  }
 
-.new-nav .sub-nav.open {
-	margin-top: 30px;
-	pointer-events: auto;
-	visibility: visible;
-	opacity: 1;
-	transition-delay: 0s;
-}
+  .new-nav .sub-nav.open {
+    margin-top: 30px;
+    pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+  }
 
-.nav-tab .sub-nav-list {
-	content: " ";
-	display: table;
-}
+  .nav-tab .sub-nav-list {
+    content: " ";
+    display: table;
+  }
 
-.new-nav .sub-nav-list .sub-nav-item-container {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	border-bottom: 1px solid #E5E5E5;
-	padding: 18px 0;
-	transition: color 0.2s ease;
-}
+  .new-nav .sub-nav-list .sub-nav-item-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 18px 0;
+    transition: color 0.2s ease;
+  }
 
-.new-nav .sub-nav-list .sub-nav-item:first-child .sub-nav-item-container {
-	padding-top: 0;
-}
+  .new-nav .sub-nav-list .sub-nav-item:first-child .sub-nav-item-container {
+    padding-top: 0;
+  }
 
-.new-nav .sub-nav-list .sub-nav-item:last-child .sub-nav-item-container {
-	border: none;
-	padding-bottom: 0;
-}
+  .new-nav .sub-nav-list .sub-nav-item:last-child .sub-nav-item-container {
+    border: none;
+    padding-bottom: 0;
+  }
 
-.new-nav .sub-nav-list a.sub-nav-item-container {
-	color: #282846;
-}
+  .new-nav .sub-nav-list a.sub-nav-item-container {
+    color: #282846;
+  }
 
-.new-nav .sub-nav-list .sub-nav-icon + .sub-nav-item-content {
-	flex: 1;
-	padding-left: 17px;
-}
+  .new-nav .sub-nav-list .sub-nav-icon + .sub-nav-item-content {
+    flex: 1;
+    padding-left: 17px;
+  }
 
-.new-nav .box-menu-list .sub-nav-list .sub-nav-icon {
-	width: 60px;
-	text-align: center;
-}
+  .new-nav .box-menu-list .sub-nav-list .sub-nav-icon {
+    width: 60px;
+    text-align: center;
+  }
 
+  .new-nav .box-menu-list .sub-nav-list .sub-nav-icon > svg {
+    vertical-align: middle;
+  }
 
-.new-nav .box-menu-list .sub-nav-list .sub-nav-icon > svg {
-	vertical-align: middle;
-}
+  .new-nav .sub-nav-list .sub-nav-item .sub-nav-item-title,
+  .new-nav .sub-nav-list .sub-nav-item .sub-nav-item-stand-title {
+    display: block;
+    opacity: 0.8;
+    font-size: 1.1rem;
+    color: inherit;
+  }
 
-.new-nav .sub-nav-list .sub-nav-item .sub-nav-item-title, 
-.new-nav .sub-nav-list .sub-nav-item .sub-nav-item-stand-title{
-	display: block;
-	opacity: 0.8;
-	font-size: 1.1rem;
-	color: inherit;
-}
+  .new-nav .sub-nav-list .sub-nav-item .sub-nav-item-title {
+    margin-bottom: 5px;
+  }
 
-.new-nav .sub-nav-list .sub-nav-item .sub-nav-item-title {
-	margin-bottom: 5px;
-}
+  .new-nav .sub-nav-list .sub-nav-item .sub-nav-item-description {
+    opacity: 0.6;
+    font-size: 0.94rem;
+    color: #333333;
+    line-height: 1.3rem;
+    min-width: 250px;
+    word-break: break-word;
+  }
 
-.new-nav .sub-nav-list .sub-nav-item .sub-nav-item-description {
-	opacity: 0.6;
-	font-size: 0.94rem;
-	color: #333333;
-	line-height: 1.3rem;
-	min-width: 250px;
-	word-break: break-word;
-}
+  .new-nav .box-menu .box-menu-list .item .arrow-down {
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: bold;
+  }
 
-.new-nav .box-menu .box-menu-list .item .arrow-down {
-	vertical-align: middle;
-	font-size: 16px;
-	font-weight: bold;
-}
+  .new-nav #sub-nav-learn {
+    width: 210px;
+  }
 
-.new-nav #sub-nav-learn {
-	width: 210px;
-}
+  .new-nav #sub-nav-company {
+    width: 160px;
+  }
 
-.new-nav #sub-nav-company {
-	width: 160px;
-}
+  .new-nav .p-main-nav-mobile.open .p-main-nav-mobile-list {
+    display: block;
+    float: left;
+  }
 
-.new-nav .p-main-nav-mobile.open .p-main-nav-mobile-list{
-	display: block;
-	float: left;
-}
+  .new-nav .p-main-nav-mobile .p-main-nav-mobile-list {
+    display: none;
+    background-color: white;
+    flex: 1;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: #fff 0 -15px, rgba(0, 0, 0, 0.1) 0 0 15px;
+    z-index: 100;
+    top: 65px;
+    height: 100vh;
+    margin: 0;
+    width: 100%;
+    padding: 0 1.25rem;
+    padding-bottom: 120px;
+  }
 
-.new-nav .p-main-nav-mobile .p-main-nav-mobile-list {
-	display: none;
-	background-color: white;
-	flex: 1;
-	position: fixed;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	overflow-y: scroll;
-	-webkit-overflow-scrolling: touch;
-	box-shadow: #fff 0 -15px, rgba(0,0,0,0.1) 0 0 15px;
-	z-index: 100;
-	top: 65px;
-	height: 100vh;
-	margin: 0;
-	width: 100%;
-	padding: 0 1.25rem;
-	padding-bottom: 120px;
-}
+  .new-nav .p-main-nav-mobile .p-main-nav-item {
+    border-top: solid 1px #d8d8d8;
+    padding: 2rem 0;
+  }
 
-.new-nav .p-main-nav-mobile .p-main-nav-item {
-	border-top: solid 1px #D8D8D8;
-	padding: 2rem 0;
-}
+  .new-nav .p-main-nav-mobile .p-main-submenu-item {
+    margin-top: 1.5rem;
+  }
 
-.new-nav .p-main-nav-mobile .p-main-submenu-item {
-	margin-top: 1.5rem;
-}
+  .p-main-nav-item a img,
+  .p-main-submenu-item a img {
+    max-height: 22px;
+    width: auto;
+  }
 
-.p-main-nav-item a img, .p-main-submenu-item a img {
-	max-height: 22px;
-	width: auto;
-}
+  .h-icon {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+  }
 
-.h-icon {
-	position: absolute;
-	top: 10px;
-	right: 0px;
-}
-
-.h-icon-cont {
-	width: 60px;
+  .h-icon-cont {
+    width: 60px;
     height: 45px;
     position: relative;
     cursor: pointer;
     transform: scale(0.4);
     transition: all 0.5s ease-in-out 0s;
-}
+  }
 
-.h-icon-cont span {
+  .h-icon-cont span {
     display: block;
     position: absolute;
     height: 9px;
@@ -325,284 +342,346 @@
     background: rgb(81, 81, 106);
     border-radius: 9px;
     transition: all 0.25s ease-in-out 0s;
-	overflow: hidden;
-}
+    overflow: hidden;
+  }
 
-.h-icon-cont > span:nth-child(1) {
-	top: 0px;
-}
+  .h-icon-cont > span:nth-child(1) {
+    top: 0px;
+  }
 
-.h-icon-cont span:nth-child(2),
-.h-icon-cont span:nth-child(3) {
-	top: 18px;
-}
+  .h-icon-cont span:nth-child(2),
+  .h-icon-cont span:nth-child(3) {
+    top: 18px;
+  }
 
-.h-icon-cont span:nth-child(4) {
-	top: 36px;
-}
+  .h-icon-cont span:nth-child(4) {
+    top: 36px;
+  }
 
-.h-icon.open span:nth-child(1) {
-	top: 18px;
-	width: 0%;
-	left: 50%;
-}
+  .h-icon.open span:nth-child(1) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+  }
 
-.h-icon.open span:nth-child(2) {
-	transform: rotate(45deg);
-}
+  .h-icon.open span:nth-child(2) {
+    transform: rotate(45deg);
+  }
 
-.h-icon.open span:nth-child(3) {
-	transform: rotate(-45deg);
-}
+  .h-icon.open span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
 
-.h-icon.open span:nth-child(4) {
-	width: 0%;
-	top: 18px;
-	left: 50%;
-}
+  .h-icon.open span:nth-child(4) {
+    width: 0%;
+    top: 18px;
+    left: 50%;
+  }
 
-.p-main-nav-item-text {
-	color: gray;
-}
+  .p-main-nav-item-text {
+    color: gray;
+  }
 
-a.p-main-nav-item-text {
-	color: #282846;
-}
+  a.p-main-nav-item-text {
+    color: #282846;
+  }
 
-.sub-nav-item-link {
-	color: #282846;
-}
+  .sub-nav-item-link {
+    color: #282846;
+  }
 
-@media (min-width: 370px) {
-	.new-nav .box-logo {
-		max-width: 90%;
-	}
+  @media (min-width: 370px) {
+    .new-nav .box-logo {
+      max-width: 90%;
+    }
 
-	.new-nav .box-logo .label {
-		padding: 0 18px;
-		width: auto;
-	}
-}
+    .new-nav .box-logo .label {
+      padding: 0 18px;
+      width: auto;
+    }
+  }
 
-@media (min-width: 769px) {
-	.new-nav .box-logo svg {
-		transform: scale(0.9);
-	}
-}
+  @media (min-width: 769px) {
+    .new-nav .box-logo svg {
+      transform: scale(0.9);
+    }
+  }
 
-@media (min-width: 980px) {
-	.new-nav .p-main-nav-mobile {
-		display: none;
-	}
-	.new-nav .box-logo .label {
-		display: inline-block;
-	}
-	.new-nav .box-menu {
-		display: block;
-	}
-	.new-nav .box-logo svg {
-		transform: scale(1);
-		margin: 0;
-	}
-}
-
+  @media (min-width: 980px) {
+    .new-nav .p-main-nav-mobile {
+      display: none;
+    }
+    .new-nav .box-logo .label {
+      display: inline-block;
+    }
+    .new-nav .box-menu {
+      display: block;
+    }
+    .new-nav .box-logo svg {
+      transform: scale(1);
+      margin: 0;
+    }
+  }
 </style>
 
 <nav class="new-nav" id="new-nav">
   <div class="container grid">
-		<div class="row">
-			<div class="box-logo">
-				<a href="/">
-					<img src="{{ base }}/images/logos/openzeppelin/oz_main_color.svg" alt="OpenZeppelin logo">
-					
-				</a>
-			<!-- a class="label" href="/jobs">We're hiring!</a-->
-		</div>
-			<div class="box-menu">
-				<ul class="box-menu-list">
-					<li class="item">
-						<a href="#">Products
-							<i class="arrow-down material-icons">expand_more</i>
-						</a>
-						<div class="sub-nav">
-							<ul class="sub-nav-list">
-								<li class="sub-nav-item">
-									<a class="sub-nav-item-container" href="/contracts">
-										<figure class="sub-nav-icon">
-											<svg width="35px" height="35px" viewBox="0 0 35 35">
-													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-															<g id="icon" transform="translate(-672.000000, -88.000000)" fill="#282846">
-																	<path d="M698.040136,117.827158 L707,123.000758 L707,93.1732207 L698.040136,88 L698.040136,117.827158 Z M685.020258,117.827158 L693.980121,123.000758 L693.980121,93.1732207 L685.020258,88 L685.020258,117.827158 Z M672,117.827158 L680.959864,123.000758 L680.959864,93.1732207 L672,88 L672,117.827158 Z" id="Fill-1-Copy-4"></path>
-															</g>
-													</g>
-											</svg>
-										</figure>
-										<div class="sub-nav-item-content">
-											<span class="sub-nav-item-title">Contracts</span>
-											<p class="sub-nav-item-description">
-												A Solidity library of reusable and secure smart contracts
-											</p>
-										</div>
-									</a>
-								</li>
-								<li class="sub-nav-item">
-									<a class="sub-nav-item-container" href="/defender">
-										<figure class="sub-nav-icon">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.38 100.78" width="35px" height="35px">
-												<g id="icon" fill="#282846">
-													<polygon points="49.94 58.16 33.29 29.08 49.94 0 16.65 0 0 29.08 16.65 58.16 49.94 58.16"/>
-													<polygon points="74.09 42.62 57.44 71.7 24.15 71.7 40.8 100.78 74.09 100.78 90.74 71.7 74.09 42.62"/>
-													<polygon points="46.79 29.08 80.08 29.08 96.73 58.16 113.38 29.08 96.73 0 63.44 0 46.79 29.08"/>
-													<polygon points="64.88 38.06 57.3 50.23 50.39 38.06 64.88 38.06"/>
-												</g>
-											</svg>
-										</figure>
-										<div class="sub-nav-item-content">
-											<span class="sub-nav-item-title">Defender</span>
-											<p class="sub-nav-item-description">
-												A platform to automate smart contract operations
-											</p>
-										</div>
-									</a>
-								</li>
-		
-								
-							</ul>
-						</div>
-					</li>
-					<li class="item"><a href="/security-audits">Security Audits</a></li>
-					<li class="item">
-						<a href="#">Learn
-							<i class="material-icons arrow-down">expand_more</i>
-						</a>
-						<div class="sub-nav" id="sub-nav-learn">
-							<ul class="sub-nav-list">
-								<li class="sub-nav-item">
-									<a class="sub-nav-item-container" href="https://docs.openzeppelin.com" target="_blank">
-										<span class="sub-nav-item-stand-title">Docs</span>
-									</a>
-								</li>
-								<li class="sub-nav-item">
-									<a class="sub-nav-item-container" href="https://forum.openzeppelin.com" target="_blank">
-										<span class="sub-nav-item-stand-title">Community Forum</span>
-									</a>
-								</li>
-								<li class="sub-nav-item">
-									<a class="sub-nav-item-container" href="https://ethernaut.openzeppelin.com" target="_blank">
-										<span class="sub-nav-item-stand-title">Ethernaut</span>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</li>
-					<li class="item">
-						<a href="#">Company
-							<i class="material-icons arrow-down">expand_more</i>
-						</a>
-						<div class="sub-nav" id="sub-nav-company">
-							<ul class="sub-nav-list">
-								<li class="sub-nav-item">
-									<a class="sub-nav-item-container" href="/about">
-										<span class="sub-nav-item-stand-title">About us</span>
-									</a>
-								</li>
-								<li class="sub-nav-item">
-									<a class="sub-nav-item-container" href="/jobs">
-										<span class="sub-nav-item-stand-title">Jobs</span>
-									</a>
-								</li>
-								<li class="sub-nav-item">
-									<a class="sub-nav-item-container" href="https://github.com/OpenZeppelin">
-										<span class="sub-nav-item-stand-title">Github</span>
-									</a>
-								</li>
-								
-					
-							</ul>
-						</div>
-					</li>
-					<li class="item"><a href="https://blog.openzeppelin.com">Blog</a></li>
-				</ul>
-			</div>
-			<nav class="p-main-nav-mobile">
-				<div class="h-icon">
-					<div class="h-icon-cont">
-						<span></span>
-						<span></span>
-						<span></span>
-						<span></span>
-					</div>
-				</div>
-				<ul class="p-main-nav-mobile-list">
-					<li class="p-main-nav-item">
-						<span class="p-main-nav-item-text">Products</span>
-						<ul class="p-main-submenu">
-							<li class="p-main-submenu-item">
-								<a href="/contracts">
-									<img src="/images/logos/openzeppelin/oz_contracts_dark.svg" alt="OpenZeppelin Contracts logo">
-								</a>
-							</li>
-							<li class="p-main-submenu-item">
-								<a href="/defender">
-									<img src="/images/logos/openzeppelin/oz_defender_dark.svg" alt="OpenZeppelin Defender logo">
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li class="p-main-nav-item">
-						<a href="/security-audits">
-							<img src="/images/logos/openzeppelin/oz_security_dark.svg" alt="OpenZeppelin Security logo">
-						</a>
-					</li>
-					<li class="p-main-nav-item">
-						<span class="p-main-nav-item-text">Learn</span>
-						<ul class="p-main-submenu">
-							<li class="p-main-submenu-item">
-								<a class="sub-nav-item-link" href="https://forum.openzeppelin.com">
-									Community Forum
-								</a>
-							</li>
-							<li class="p-main-submenu-item">
-								<a class="sub-nav-item-link" href="https://docs.openzeppelin.com">
-									Docs
-								</a>
-							</li>
-							<li class="p-main-submenu-item">
-								<a class="sub-nav-item-link" href="https://ethernaut.openzeppelin.com">
-									Ethernaut
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li class="p-main-nav-item">
-						<span class="p-main-nav-item-text">Company</span>
-						<ul class="p-main-submenu">
-							<li class="p-main-submenu-item">
-								<a class="sub-nav-item-link" href="/about">
-									About us
-								</a>
-							</li>
-							<li class="p-main-submenu-item">
-								<a class="sub-nav-item-link" href="/jobs">
-									Jobs
-								</a>
-							</li>
-							<li class="p-main-submenu-item">
-								<a class="sub-nav-item-link" href="https://github.com/OpenZeppelin">
-									Github
-								</a>
-							</li>
-							<li class="p-main-submenu-item">
-								<a class="sub-nav-item-link" href="https://blog.openzeppelin.com">
-									Blog
-								</a>
-							</li>
-						</ul>
-					</li>
-				        
-				        
-				</ul>
-			</nav>
-		</div>
+    <div class="row">
+      <div class="box-logo">
+        <div class="hiring-label"><a href="/jobs">We are hiring!</a></div>
+        <a href="/">
+          <img
+            src="{{ base }}/images/logos/openzeppelin/oz_main_color.svg"
+            alt="OpenZeppelin logo"
+          />
+        </a>
+        <!-- a class="label" href="/jobs">We're hiring!</a-->
+      </div>
+      <div class="box-menu">
+        <ul class="box-menu-list">
+          <li class="item">
+            <a href="#"
+              >Products
+              <i class="arrow-down material-icons">expand_more</i>
+            </a>
+            <div class="sub-nav">
+              <ul class="sub-nav-list">
+                <li class="sub-nav-item">
+                  <a class="sub-nav-item-container" href="/contracts">
+                    <figure class="sub-nav-icon">
+                      <svg width="35px" height="35px" viewBox="0 0 35 35">
+                        <g
+                          stroke="none"
+                          stroke-width="1"
+                          fill="none"
+                          fill-rule="evenodd"
+                        >
+                          <g
+                            id="icon"
+                            transform="translate(-672.000000, -88.000000)"
+                            fill="#282846"
+                          >
+                            <path
+                              d="M698.040136,117.827158 L707,123.000758 L707,93.1732207 L698.040136,88 L698.040136,117.827158 Z M685.020258,117.827158 L693.980121,123.000758 L693.980121,93.1732207 L685.020258,88 L685.020258,117.827158 Z M672,117.827158 L680.959864,123.000758 L680.959864,93.1732207 L672,88 L672,117.827158 Z"
+                              id="Fill-1-Copy-4"
+                            ></path>
+                          </g>
+                        </g>
+                      </svg>
+                    </figure>
+                    <div class="sub-nav-item-content">
+                      <span class="sub-nav-item-title">Contracts</span>
+                      <p class="sub-nav-item-description">
+                        A Solidity library of reusable and secure smart
+                        contracts
+                      </p>
+                    </div>
+                  </a>
+                </li>
+                <li class="sub-nav-item">
+                  <a class="sub-nav-item-container" href="/defender">
+                    <figure class="sub-nav-icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 113.38 100.78"
+                        width="35px"
+                        height="35px"
+                      >
+                        <g id="icon" fill="#282846">
+                          <polygon
+                            points="49.94 58.16 33.29 29.08 49.94 0 16.65 0 0 29.08 16.65 58.16 49.94 58.16"
+                          />
+                          <polygon
+                            points="74.09 42.62 57.44 71.7 24.15 71.7 40.8 100.78 74.09 100.78 90.74 71.7 74.09 42.62"
+                          />
+                          <polygon
+                            points="46.79 29.08 80.08 29.08 96.73 58.16 113.38 29.08 96.73 0 63.44 0 46.79 29.08"
+                          />
+                          <polygon
+                            points="64.88 38.06 57.3 50.23 50.39 38.06 64.88 38.06"
+                          />
+                        </g>
+                      </svg>
+                    </figure>
+                    <div class="sub-nav-item-content">
+                      <span class="sub-nav-item-title">Defender</span>
+                      <p class="sub-nav-item-description">
+                        A platform to automate smart contract operations
+                      </p>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="item"><a href="/security-audits">Security Audits</a></li>
+          <li class="item">
+            <a href="#"
+              >Learn
+              <i class="material-icons arrow-down">expand_more</i>
+            </a>
+            <div class="sub-nav" id="sub-nav-learn">
+              <ul class="sub-nav-list">
+                <li class="sub-nav-item">
+                  <a
+                    class="sub-nav-item-container"
+                    href="https://docs.openzeppelin.com"
+                    target="_blank"
+                  >
+                    <span class="sub-nav-item-stand-title">Docs</span>
+                  </a>
+                </li>
+                <li class="sub-nav-item">
+                  <a
+                    class="sub-nav-item-container"
+                    href="https://forum.openzeppelin.com"
+                    target="_blank"
+                  >
+                    <span class="sub-nav-item-stand-title"
+                      >Community Forum</span
+                    >
+                  </a>
+                </li>
+                <li class="sub-nav-item">
+                  <a
+                    class="sub-nav-item-container"
+                    href="https://ethernaut.openzeppelin.com"
+                    target="_blank"
+                  >
+                    <span class="sub-nav-item-stand-title">Ethernaut</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="item">
+            <a href="#"
+              >Company
+              <i class="material-icons arrow-down">expand_more</i>
+            </a>
+            <div class="sub-nav" id="sub-nav-company">
+              <ul class="sub-nav-list">
+                <li class="sub-nav-item">
+                  <a class="sub-nav-item-container" href="/about">
+                    <span class="sub-nav-item-stand-title">About us</span>
+                  </a>
+                </li>
+                <li class="sub-nav-item">
+                  <a class="sub-nav-item-container" href="/jobs">
+                    <span class="sub-nav-item-stand-title">Jobs</span>
+                  </a>
+                </li>
+                <li class="sub-nav-item">
+                  <a
+                    class="sub-nav-item-container"
+                    href="https://github.com/OpenZeppelin"
+                  >
+                    <span class="sub-nav-item-stand-title">Github</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="item"><a href="https://blog.openzeppelin.com">Blog</a></li>
+        </ul>
+      </div>
+      <nav class="p-main-nav-mobile">
+        <div class="h-icon">
+          <div class="h-icon-cont">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <ul class="p-main-nav-mobile-list">
+          <li class="p-main-nav-item">
+            <span class="p-main-nav-item-text">Products</span>
+            <ul class="p-main-submenu">
+              <li class="p-main-submenu-item">
+                <a href="/contracts">
+                  <img
+                    src="/images/logos/openzeppelin/oz_contracts_dark.svg"
+                    alt="OpenZeppelin Contracts logo"
+                  />
+                </a>
+              </li>
+              <li class="p-main-submenu-item">
+                <a href="/defender">
+                  <img
+                    src="/images/logos/openzeppelin/oz_defender_dark.svg"
+                    alt="OpenZeppelin Defender logo"
+                  />
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="p-main-nav-item">
+            <a href="/security-audits">
+              <img
+                src="/images/logos/openzeppelin/oz_security_dark.svg"
+                alt="OpenZeppelin Security logo"
+              />
+            </a>
+          </li>
+          <li class="p-main-nav-item">
+            <span class="p-main-nav-item-text">Learn</span>
+            <ul class="p-main-submenu">
+              <li class="p-main-submenu-item">
+                <a
+                  class="sub-nav-item-link"
+                  href="https://forum.openzeppelin.com"
+                >
+                  Community Forum
+                </a>
+              </li>
+              <li class="p-main-submenu-item">
+                <a
+                  class="sub-nav-item-link"
+                  href="https://docs.openzeppelin.com"
+                >
+                  Docs
+                </a>
+              </li>
+              <li class="p-main-submenu-item">
+                <a
+                  class="sub-nav-item-link"
+                  href="https://ethernaut.openzeppelin.com"
+                >
+                  Ethernaut
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="p-main-nav-item">
+            <span class="p-main-nav-item-text">Company</span>
+            <ul class="p-main-submenu">
+              <li class="p-main-submenu-item">
+                <a class="sub-nav-item-link" href="/about"> About us </a>
+              </li>
+              <li class="p-main-submenu-item">
+                <a class="sub-nav-item-link" href="/jobs"> Jobs </a>
+              </li>
+              <li class="p-main-submenu-item">
+                <a
+                  class="sub-nav-item-link"
+                  href="https://github.com/OpenZeppelin"
+                >
+                  Github
+                </a>
+              </li>
+              <li class="p-main-submenu-item">
+                <a
+                  class="sub-nav-item-link"
+                  href="https://blog.openzeppelin.com"
+                >
+                  Blog
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </nav>
