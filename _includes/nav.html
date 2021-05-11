@@ -38,13 +38,13 @@
   .new-nav .box-logo h1 {
     width: 100%;
   }
-
+  
   .new-nav .box-logo > a {
-    width: 100%;
     display: flex;
     align-items: center;
     height: 100%;
     line-height: 100%;
+    margin-right: 1em;
   }
 
   .new-nav .box-logo,
@@ -58,8 +58,7 @@
 
   .new-nav .box-logo {
     justify-content: flex-start;
-    max-width: 150px;
-    position: relative;
+    display: flex;
   }
 
   .new-nav .box-logo svg {
@@ -70,14 +69,13 @@
   }
 
   .new-nav .box-logo .hiring-label {
-    position: absolute;
     background-color: tomato;
     color: white;
-    right: -100px;
-    top: 5px;
-    padding: 5px;
-    font-size: 0.8rem;
     cursor: pointer;
+    padding: .5rem .75rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
+    flex: 1;
   }
 
   .hiring-label a,
@@ -428,14 +426,13 @@
   <div class="container grid">
     <div class="row">
       <div class="box-logo">
-        <div class="hiring-label"><a href="/jobs">We are hiring!</a></div>
         <a href="/">
           <img
             src="{{ base }}/images/logos/openzeppelin/oz_main_color.svg"
             alt="OpenZeppelin logo"
           />
         </a>
-        <!-- a class="label" href="/jobs">We're hiring!</a-->
+        <div class="hiring-label"><a href="/jobs">We are hiring!</a></div>
       </div>
       <div class="box-menu">
         <ul class="box-menu-list">
