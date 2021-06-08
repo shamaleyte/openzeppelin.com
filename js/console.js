@@ -1,18 +1,18 @@
-(function($) {
-  setTimeout(function() {
-    $('#typed').typed({
-      strings: ['[~] $ npm install @openzeppelin/contracts'],
-      typespeed: 800,
-      backdelay: 0,
-      loop: false,
-      contentType: 'html',
-      loopCount: false,
-      callback: function() {
-        installing();
-      },
-    });
-  }, 1000);
-})(jQuery);
+// (function($) {
+//   setTimeout(function() {
+//     $('#typed').typed({
+//       strings: ['[~] $ npm install @openzeppelin/contracts'],
+//       typespeed: 800,
+//       backdelay: 0,
+//       loop: false,
+//       contentType: 'html',
+//       loopCount: false,
+//       callback: function() {
+//         installing();
+//       },
+//     });
+//   }, 1000);
+// })(jQuery);
 
 function installing() {
   $('.terminal .typed-cursor').css('color', 'black');
