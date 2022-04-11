@@ -1,0 +1,1742 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+  
+
+  <title>OpenZeppelin | Security Audits</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TW  -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@openzeppelin" />
+  <meta name="twitter:creator" content="@openzeppelin" />
+  <meta name="twitter:title" content="OpenZeppelin | Security Audits" />
+  <meta name="twitter:description" content="OpenZeppelin verifies that your distributed systems work as intended by performing an audit. Our engineers fully review your system’s architecture and codebase, and then write a thorough report that includes actionable feedback for every issue found." />
+  <meta name="twitter:image" content="http://localhost:4000/images/card.jpg" />
+
+  <!-- OG -->
+  <meta property="og:title" content="OpenZeppelin | Security Audits" />
+  <meta property="og:description" content="OpenZeppelin verifies that your distributed systems work as intended by performing an audit. Our engineers fully review your system’s architecture and codebase, and then write a thorough report that includes actionable feedback for every issue found." />
+  <meta property="og:url" content="http://localhost:4000/" />
+  <meta property="og:site_name" content="OpenZeppelin" />
+  <meta property="og:image" content="http://localhost:4000/images/card.jpg" />
+  <meta property="og:image:secure_url" content="http://localhost:4000/images/card.jpg" />
+  <meta property="og:image:width" content="300" />
+  <meta property="og:image:height" content="300" />
+
+  <meta name="description" content="The standard for secure blockchain applications.">
+  <link rel="manifest" href="/manifest.json" />
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/images/favicons/apple-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="/images/favicons/apple-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/favicons/apple-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/favicons/apple-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/favicons/apple-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/images/favicons/apple-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/favicons/apple-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/images/favicons/apple-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-icon-180x180.png" />
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/images/favicons/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/favicons/favicon-192x192.png" />
+
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- CSS & Fonts -->
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/terminal.css">
+  <link rel="stylesheet" href="/css/animate.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- SCP -->
+  <script src="/js/jquery.js"></script>
+  <script src="/js/script.js"></script>
+
+  <!-- GA -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67327037-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-67327037-1');
+  </script>
+  
+  <!-- HS -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/7795250.js"></script>
+  
+</head>
+
+	<style type="text/css">
+		.root {
+			margin-top: 70px;
+		}
+	</style>
+	<body class="debug">
+		<div class="overlay"></div>
+		<div class="root">
+			<style type="text/css">
+  .new-nav {
+    position: absolute;
+    height: 70px;
+    width: 100%;
+    background-color: #fefefe;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    box-shadow: none;
+    font-family: "silka";
+  }
+
+  .new-nav .grid > .row {
+    height: 100%;
+    margin: 0;
+  }
+
+  .new-nav.new-nav--fixed {
+    top: 0px;
+    position: fixed;
+    box-shadow: rgb(255, 255, 255) 0px -15px, rgba(0, 0, 0, 0.1) 0px 0px 15px;
+  }
+
+  .new-nav.new-nav--fixed > .container {
+    border-bottom: 0;
+    height: 100%;
+  }
+
+  .new-nav > .container {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -12px -40px rgba(0, 0, 0, 0.12);
+    height: 100%;
+  }
+
+  .new-nav .box-logo h1 {
+    width: 100%;
+  }
+
+  .new-nav .box-logo > a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    line-height: 100%;
+    margin-right: 1em;
+  }
+
+  .new-nav .box-logo,
+  .new-nav .box-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .new-nav .box-logo {
+    justify-content: flex-start;
+    display: flex;
+  }
+
+  .new-nav .box-logo svg {
+    transition: transform 0.4s ease, margin 0.4s ease;
+    transform: scale(0.8);
+    margin-left: -10px;
+    margin-top: 2px;
+  }
+
+  .new-nav .box-logo .hiring-label {
+    background-color: tomato;
+    color: white;
+    cursor: pointer;
+    padding: 0.4rem 0.65rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    flex: 1;
+  }
+
+  .hiring-label a,
+  .hiring-label a:hover,
+  .hiring-label a:visited {
+    color: white;
+  }
+  .new-nav .box-logo .label {
+    display: none;
+    background-color: #ebebef;
+    border-radius: 100px;
+    height: 26px;
+    line-height: 27px;
+    font-size: 0.79rem;
+    white-space: nowrap;
+    width: 110px;
+    text-align: center;
+    margin: 0 1rem;
+    color: inherit;
+    display: inline-block;
+    padding: 0 10px;
+    border-radius: 12px;
+  }
+
+  .new-nav .box-logo .label:hover {
+    background-color: #e2e2e2;
+  }
+
+  .new-nav .box-menu {
+    display: none;
+    flex-grow: 1;
+  }
+
+  .new-nav .box-menu {
+    line-height: 70px;
+    height: 70px;
+  }
+
+  .new-nav .box-menu .box-menu-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin-left: 5px;
+  }
+
+  .new-nav .box-menu .box-menu-list .item {
+    margin-right: 40px;
+    position: relative;
+  }
+
+  .new-nav .box-menu .box-menu-list .item > a {
+    cursor: pointer;
+    transition: color 0.4s ease;
+    color: #282846;
+    display: inline-block;
+    height: 100%;
+  }
+
+  .new-nav .box-menu .box-menu-list .item a:hover {
+    cursor: pointer;
+    color: #6d6d79;
+  }
+
+  .new-nav .box-menu .box-menu-list .item:last-child {
+    margin-right: 0;
+  }
+
+  .new-nav .sub-nav {
+    position: absolute;
+    transform: translateX(-50%);
+    top: 0;
+    left: 50%;
+    color: rgba(0, 0, 0, 0.86);
+    border-radius: 3px;
+    margin-top: 0;
+    position: absolute;
+    top: 30px;
+    transition: visibility 0s 0.2s, opacity 0.2s, margin-top 0.2s;
+    pointer-events: none;
+    padding: 25px 20px;
+    z-index: 3;
+    background: #ffffff;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+    line-height: normal;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .new-nav .item .sub-nav .sub-nav-item-container:hover > a {
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .new-nav .box-menu .item .sub-nav .sub-nav-item-container:hover svg #icon {
+    fill: #4e5ee4;
+  }
+
+  .new-nav .sub-nav::after {
+    background-color: white;
+    content: "";
+    opacity: 1;
+    transform: rotate(45deg);
+    transition: visibility 0s 0.2s, opacity 0.2s;
+    visibility: visible;
+    width: 12px;
+    height: 12px;
+    top: -6px;
+    left: 50%;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .new-nav .sub-nav.open {
+    margin-top: 30px;
+    pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+  }
+
+  .nav-tab .sub-nav-list {
+    content: " ";
+    display: table;
+  }
+
+  .new-nav .sub-nav-list .sub-nav-item-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 18px 0;
+    transition: color 0.2s ease;
+  }
+
+  .new-nav .sub-nav-list .sub-nav-item:first-child .sub-nav-item-container {
+    padding-top: 0;
+  }
+
+  .new-nav .sub-nav-list .sub-nav-item:last-child .sub-nav-item-container {
+    border: none;
+    padding-bottom: 0;
+  }
+
+  .new-nav .sub-nav-list a.sub-nav-item-container {
+    color: #282846;
+  }
+
+  .new-nav .sub-nav-list .sub-nav-icon + .sub-nav-item-content {
+    flex: 1;
+    padding-left: 17px;
+  }
+
+  .new-nav .box-menu-list .sub-nav-list .sub-nav-icon {
+    width: 60px;
+    text-align: center;
+  }
+
+  .new-nav .box-menu-list .sub-nav-list .sub-nav-icon > svg {
+    vertical-align: middle;
+  }
+
+  .new-nav .sub-nav-list .sub-nav-item .sub-nav-item-title,
+  .new-nav .sub-nav-list .sub-nav-item .sub-nav-item-stand-title {
+    display: block;
+    opacity: 0.8;
+    font-size: 1.1rem;
+    color: inherit;
+  }
+
+  .new-nav .sub-nav-list .sub-nav-item .sub-nav-item-title {
+    margin-bottom: 5px;
+  }
+
+  .new-nav .sub-nav-list .sub-nav-item .sub-nav-item-description {
+    opacity: 0.6;
+    font-size: 0.94rem;
+    color: #333333;
+    line-height: 1.3rem;
+    min-width: 250px;
+    word-break: break-word;
+  }
+
+  .new-nav .box-menu .box-menu-list .item .arrow-down {
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .new-nav #sub-nav-learn {
+    width: 210px;
+  }
+
+  .new-nav #sub-nav-company {
+    width: 160px;
+  }
+
+  .new-nav .p-main-nav-mobile.open .p-main-nav-mobile-list {
+    display: block;
+    float: left;
+  }
+
+  .new-nav .p-main-nav-mobile .p-main-nav-mobile-list {
+    display: none;
+    background-color: white;
+    flex: 1;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: #fff 0 -15px, rgba(0, 0, 0, 0.1) 0 0 15px;
+    z-index: 100;
+    top: 65px;
+    height: 100vh;
+    margin: 0;
+    width: 100%;
+    padding: 0 1.25rem;
+    padding-bottom: 120px;
+  }
+
+  .new-nav .p-main-nav-mobile .p-main-nav-item {
+    border-top: solid 1px #d8d8d8;
+    padding: 2rem 0;
+  }
+
+  .new-nav .p-main-nav-mobile .p-main-submenu-item {
+    margin-top: 1.5rem;
+  }
+
+  .p-main-nav-item a img,
+  .p-main-submenu-item a img {
+    max-height: 22px;
+    width: auto;
+  }
+
+  .h-icon {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+  }
+
+  .h-icon-cont {
+    width: 60px;
+    height: 45px;
+    position: relative;
+    cursor: pointer;
+    transform: scale(0.4);
+    transition: all 0.5s ease-in-out 0s;
+  }
+
+  .h-icon-cont span {
+    display: block;
+    position: absolute;
+    height: 9px;
+    width: 100%;
+    opacity: 1;
+    left: 0px;
+    transform: rotate(0deg);
+    background: rgb(81, 81, 106);
+    border-radius: 9px;
+    transition: all 0.25s ease-in-out 0s;
+    overflow: hidden;
+  }
+
+  .h-icon-cont > span:nth-child(1) {
+    top: 0px;
+  }
+
+  .h-icon-cont span:nth-child(2),
+  .h-icon-cont span:nth-child(3) {
+    top: 18px;
+  }
+
+  .h-icon-cont span:nth-child(4) {
+    top: 36px;
+  }
+
+  .h-icon.open span:nth-child(1) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+  }
+
+  .h-icon.open span:nth-child(2) {
+    transform: rotate(45deg);
+  }
+
+  .h-icon.open span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+
+  .h-icon.open span:nth-child(4) {
+    width: 0%;
+    top: 18px;
+    left: 50%;
+  }
+
+  .p-main-nav-item-text {
+    color: gray;
+  }
+
+  a.p-main-nav-item-text {
+    color: #282846;
+  }
+
+  .sub-nav-item-link {
+    color: #282846;
+  }
+
+  @media (min-width: 370px) {
+    .new-nav .box-logo {
+      max-width: 90%;
+    }
+
+    .new-nav .box-logo .label {
+      padding: 0 18px;
+      width: auto;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .new-nav .box-logo svg {
+      transform: scale(0.9);
+    }
+  }
+
+  @media (min-width: 980px) {
+    .new-nav .p-main-nav-mobile {
+      display: none;
+    }
+    .new-nav .box-logo .label {
+      display: inline-block;
+    }
+    .new-nav .box-menu {
+      display: block;
+    }
+    .new-nav .box-logo svg {
+      transform: scale(1);
+      margin: 0;
+    }
+  }
+</style>
+
+<nav class="new-nav" id="new-nav">
+  <div class="container grid">
+    <div class="row">
+      <div class="box-logo">
+        <a href="/">
+          <img
+            src="/images/logos/openzeppelin/oz_main_color.svg"
+            alt="OpenZeppelin logo"
+          />
+        </a>
+        <div class="hiring-label"><a href="/jobs">We're hiring!</a></div>
+      </div>
+      <div class="box-menu">
+        <ul class="box-menu-list">
+          <li class="item">
+            <a href="#"
+              >Products
+              <i class="arrow-down material-icons">expand_more</i>
+            </a>
+            <div class="sub-nav">
+              <ul class="sub-nav-list">
+                <li class="sub-nav-item">
+                  <a class="sub-nav-item-container" href="/contracts">
+                    <figure class="sub-nav-icon">
+                      <svg width="35px" height="35px" viewBox="0 0 35 35">
+                        <g
+                          stroke="none"
+                          stroke-width="1"
+                          fill="none"
+                          fill-rule="evenodd"
+                        >
+                          <g
+                            id="icon"
+                            transform="translate(-672.000000, -88.000000)"
+                            fill="#282846"
+                          >
+                            <path
+                              d="M698.040136,117.827158 L707,123.000758 L707,93.1732207 L698.040136,88 L698.040136,117.827158 Z M685.020258,117.827158 L693.980121,123.000758 L693.980121,93.1732207 L685.020258,88 L685.020258,117.827158 Z M672,117.827158 L680.959864,123.000758 L680.959864,93.1732207 L672,88 L672,117.827158 Z"
+                              id="Fill-1-Copy-4"
+                            ></path>
+                          </g>
+                        </g>
+                      </svg>
+                    </figure>
+                    <div class="sub-nav-item-content">
+                      <span class="sub-nav-item-title">Contracts</span>
+                      <p class="sub-nav-item-description">
+                        A Solidity library of reusable and secure smart
+                        contracts
+                      </p>
+                    </div>
+                  </a>
+                </li>
+                <li class="sub-nav-item">
+                  <a class="sub-nav-item-container" href="/defender">
+                    <figure class="sub-nav-icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 113.38 100.78"
+                        width="35px"
+                        height="35px"
+                      >
+                        <g id="icon" fill="#282846">
+                          <polygon
+                            points="49.94 58.16 33.29 29.08 49.94 0 16.65 0 0 29.08 16.65 58.16 49.94 58.16"
+                          />
+                          <polygon
+                            points="74.09 42.62 57.44 71.7 24.15 71.7 40.8 100.78 74.09 100.78 90.74 71.7 74.09 42.62"
+                          />
+                          <polygon
+                            points="46.79 29.08 80.08 29.08 96.73 58.16 113.38 29.08 96.73 0 63.44 0 46.79 29.08"
+                          />
+                          <polygon
+                            points="64.88 38.06 57.3 50.23 50.39 38.06 64.88 38.06"
+                          />
+                        </g>
+                      </svg>
+                    </figure>
+                    <div class="sub-nav-item-content">
+                      <span class="sub-nav-item-title">Defender</span>
+                      <p class="sub-nav-item-description">
+                        A platform to automate smart contract operations
+                      </p>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="item"><a href="/security-audits">Security Audits</a></li>
+          <li class="item">
+            <a href="#"
+              >Learn
+              <i class="material-icons arrow-down">expand_more</i>
+            </a>
+            <div class="sub-nav" id="sub-nav-learn">
+              <ul class="sub-nav-list">
+                <li class="sub-nav-item">
+                  <a
+                    class="sub-nav-item-container"
+                    href="https://docs.openzeppelin.com"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <span class="sub-nav-item-stand-title">Docs</span>
+                  </a>
+                </li>
+                <li class="sub-nav-item">
+                  <a
+                    class="sub-nav-item-container"
+                    href="https://forum.openzeppelin.com"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <span class="sub-nav-item-stand-title"
+                      >Community Forum</span
+                    >
+                  </a>
+                </li>
+                <li class="sub-nav-item">
+                  <a
+                    class="sub-nav-item-container"
+                    href="https://ethernaut.openzeppelin.com"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <span class="sub-nav-item-stand-title">Ethernaut</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="item">
+            <a href="#"
+              >Company
+              <i class="material-icons arrow-down">expand_more</i>
+            </a>
+            <div class="sub-nav" id="sub-nav-company">
+              <ul class="sub-nav-list">
+                <li class="sub-nav-item">
+                  <a class="sub-nav-item-container" href="/about">
+                    <span class="sub-nav-item-stand-title">About us</span>
+                  </a>
+                </li>
+                <li class="sub-nav-item">
+                  <a class="sub-nav-item-container" href="/jobs">
+                    <span class="sub-nav-item-stand-title">Jobs</span>
+                  </a>
+                </li>
+                <li class="sub-nav-item">
+                  <a
+                    class="sub-nav-item-container"
+                    href="https://github.com/OpenZeppelin"
+                  >
+                    <span class="sub-nav-item-stand-title">Github</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="item">
+            <a href="https://blog.openzeppelin.com">News & Events</a>
+          </li>
+        </ul>
+      </div>
+      <nav class="p-main-nav-mobile">
+        <div class="h-icon">
+          <div class="h-icon-cont">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <ul class="p-main-nav-mobile-list">
+          <li class="p-main-nav-item">
+            <span class="p-main-nav-item-text">Products</span>
+            <ul class="p-main-submenu">
+              <li class="p-main-submenu-item">
+                <a href="/contracts">
+                  <img
+                    src="/images/logos/openzeppelin/oz_contracts_dark.svg"
+                    alt="OpenZeppelin Contracts logo"
+                  />
+                </a>
+              </li>
+              <li class="p-main-submenu-item">
+                <a href="/defender">
+                  <img
+                    src="/images/logos/openzeppelin/oz_defender_dark.svg"
+                    alt="OpenZeppelin Defender logo"
+                  />
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="p-main-nav-item">
+            <a href="/security-audits">
+              <img
+                src="/images/logos/openzeppelin/oz_security_dark.svg"
+                alt="OpenZeppelin Security logo"
+              />
+            </a>
+          </li>
+          <li class="p-main-nav-item">
+            <span class="p-main-nav-item-text">Learn</span>
+            <ul class="p-main-submenu">
+              <li class="p-main-submenu-item">
+                <a
+                  class="sub-nav-item-link"
+                  href="https://forum.openzeppelin.com"
+                >
+                  Community Forum
+                </a>
+              </li>
+              <li class="p-main-submenu-item">
+                <a
+                  class="sub-nav-item-link"
+                  href="https://docs.openzeppelin.com"
+                >
+                  Docs
+                </a>
+              </li>
+              <li class="p-main-submenu-item">
+                <a
+                  class="sub-nav-item-link"
+                  href="https://ethernaut.openzeppelin.com"
+                >
+                  Ethernaut
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="p-main-nav-item">
+            <span class="p-main-nav-item-text">Company</span>
+            <ul class="p-main-submenu">
+              <li class="p-main-submenu-item">
+                <a class="sub-nav-item-link" href="/about"> About us </a>
+              </li>
+              <li class="p-main-submenu-item">
+                <a class="sub-nav-item-link" href="/jobs"> Jobs </a>
+              </li>
+              <li class="p-main-submenu-item">
+                <a
+                  class="sub-nav-item-link"
+                  href="https://github.com/OpenZeppelin"
+                >
+                  Github
+                </a>
+              </li>
+              <li class="p-main-submenu-item">
+                <a
+                  class="sub-nav-item-link"
+                  href="https://blog.openzeppelin.com"
+                >
+                  Blog
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</nav>
+
+			<style type="text/css">
+	.page-security .p-nav .p-menu {
+		-webkit-mask-image: none;
+		display: flex;
+		flex-direction: row;
+		flex-flow: row-reverse;
+	}
+
+	.page-security {
+		position: relative;
+		transition: padding-top 0.2s ease;
+	}
+
+	.security-audits-hero {
+		transition: padding-top 0.4s ease;
+		color: #FFF;
+		background-color: #282846;
+	}
+
+	.security-audits-hero h1.heading {
+		font-size: 1.8rem;
+	}
+
+	.sa-logo>svg {
+		vertical-align: middle;
+		transform: scale(0.9);
+	}
+
+	.p-nav .request-audit-container {
+		display: flex;
+		align-items: center;
+	}
+
+	.p-nav .request-audit-container>a {
+		padding: 0;
+	}
+
+	.p-nav .request-audit-link {
+		color: white;
+		border-radius: 6px;
+		height: 40px;
+		line-height: 40px;
+		display: inline-block;
+	}
+
+	.page-security .timeline {
+		margin: 80px 0 40px;
+		padding-left: 20px;
+	}
+
+	.security-audits-hero .container {
+		position: relative;
+	}
+
+	.security-audits-hero .heading,
+	.security-audits-hero .description {
+		color: white;
+	}
+
+	.page-security .audit-reports {
+		text-align: center;
+		z-index: 1;
+	}
+
+	.page-security .audit-reports>.container {
+		padding: 3rem;
+	}
+
+	.audit-reports .audit-grid .row {
+		flex-direction: row;
+		justify-items: center;
+		align-items: center;
+	}
+
+	.audit-reports .audit-grid {
+		width: 100%;
+	}
+
+	.audit-reports .audit-grid img {
+		object-fit: scale-down;
+		object-position: 50% 50%;
+		min-width: 200px;
+		width: 200px;
+		height: 100%;
+		flex: 1;
+	}
+
+	.audit-reports .col {
+		box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.32);
+		border-radius: 6px;
+		overflow: hidden;
+		margin-right: 1rem;
+		min-width: 200px;
+		margin-right: 0;
+	}
+
+	.audit-reports .col>a {
+		overflow: hidden;
+		display: flex;
+	}
+
+	.audit-reports .col:last-child {
+		margin-right: 0;
+	}
+
+	.page-security .audit-reports .heading {
+		color: white;
+	}
+
+	.page-security .sa-comments {
+		position: relative;
+		text-align: center;
+		padding-top: 30px;
+	}
+
+	.page-security .sa-comments .security-quote {
+		text-align: center;
+		z-index: 1;
+	}
+
+	.page-security .sa-comments .heading {
+		margin: 40px 0;
+	}
+
+	.page-security .audit-reports .heading {
+		margin-bottom: 20px;
+	}
+
+	.sa-faqs {
+		position: relative;
+	}
+
+	.sa-faqs .container {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+
+	.sa-faqs .heading {
+		text-align: center;
+	}
+
+	.sa-faqs .faq-list {
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.question {
+		padding: 34px 0;
+		border-bottom: solid 1px #E1E1E2;
+	}
+
+	.question:last-child {
+		padding: 34px 0;
+		border-bottom: none;
+	}
+
+	.question .faqs-title {
+		font-family: 'silka';
+		margin-bottom: 25px;
+		max-width: 560px;
+		display: block;
+		font-size: 1.3rem;
+		text-decoration: none;
+		line-height: 1.8;
+		font-weight: 500;
+		margin: 0;
+		margin-bottom: 15px;
+		color: inherit;
+	}
+
+	.question .faqs-description {
+		color: #56566E;
+		line-height: 24px;
+		transition: height 0.8s ease;
+		overflow: hidden;
+		font-size: 1rem;
+		line-height: 1.8;
+		font-weight: 400;
+	}
+
+	.page-security .checklist {
+		text-decoration: underline;
+		color: inherit;
+		cursor: pointer;
+	}
+
+	.page-security .partners-grid .row {
+		flex-direction: row;
+	}
+
+	.page-security .audit-reports .audit-grid {
+		padding: 1.2rem;
+	}
+	
+	.request-button {
+		padding-top: 2rem;
+	}
+		
+	.request-button .cta {
+	    padding-right: 2.5rem;
+    	padding-left: 2.5rem;
+	}
+
+	@media (min-width: 500px) {
+		.audit-reports .col {
+			margin-right: 1rem;
+		}
+
+		.audit-reports .audit-grid .row {
+		padding: 10px 0;
+		}
+	}
+
+	@media (min-width: 980px) {
+		.page-security .timeline {
+			padding-left: 0;
+		}
+
+		.page-security.fixed-sub-nav {
+			margin-top: 121px;
+		}
+
+		.page-security .audit-reports .audit-grid {
+			padding: 0;
+			padding-bottom: 30px;
+		}
+
+		.sa-logo>svg {
+			transform: scale(1);
+		}
+
+		.sa-faqs>div.fake-bg {
+			height: 110px;
+		}
+
+		.page-security .p-nav .p-menu {
+			-webkit-mask-image: none;
+			flex-basis: 144px;
+			flex-grow: 0;
+		}
+	}
+</style>
+
+
+<main class="page page-security">
+
+	<nav class="p-nav" id="new-sub-nav">
+		<div class="container">
+
+			<div class="p-logo sa-logo">
+				<svg width="114px" height="50px" viewBox="0 0 114 28" version="1.1" xmlns="http://www.w3.org/2000/svg"
+					xmlns:xlink="http://www.w3.org/1999/xlink">
+					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+						<g transform="translate(-215.000000, -87.000000)" fill="#FFFFFF">
+							<g transform="translate(213.000000, 84.000000)">
+								<path
+									d="M44.4531903,21.3982222 C41.4676676,21.3982222 39.4897587,19.6248889 39.4897587,17.0302222 L41.8968365,17.0302222 C41.915496,18.2062222 42.8857909,19.1208889 44.5278284,19.1208889 C45.9272922,19.1208889 46.8229491,18.5235556 46.8229491,17.5342222 C46.8229491,14.5475556 39.8816086,16.9555556 39.8816086,11.6168889 C39.8816086,9.54488889 41.5236461,7.84622222 44.3972118,7.84622222 C46.8789276,7.84622222 48.9874531,9.15288889 49.0620912,11.8782222 L46.5803753,11.8782222 C46.5617158,10.7955556 45.7966756,10.0675556 44.3972118,10.0675556 C43.0164075,10.0675556 42.3446649,10.7582222 42.3446649,11.5795556 C42.3446649,14.3048889 49.3793029,12.0648889 49.3793029,17.3475556 C49.3793029,19.6622222 47.5879893,21.3982222 44.4531903,21.3982222 Z M55.8168365,21.3982222 C52.9246113,21.3982222 50.8720643,19.2328889 50.8720643,16.3022222 C50.8720643,13.2035556 52.9432708,11.0942222 55.8168365,11.0942222 C58.9702949,11.0942222 60.6869705,13.4275556 60.6869705,16.1902222 L60.6869705,16.9555556 L53.2231635,16.9555556 C53.2978016,18.4488889 54.3240751,19.4568889 55.8914745,19.4568889 C57.0856836,19.4568889 58,18.8968889 58.3358713,18.0942222 L60.5936729,18.0942222 C60.1085255,20.0915556 58.3545308,21.3982222 55.8168365,21.3982222 Z M53.2604826,15.2382222 L58.3731903,15.2382222 C58.2612332,13.9128889 57.2349598,13.0355556 55.8168365,13.0355556 C54.4546917,13.0355556 53.4097587,14.0062222 53.2604826,15.2382222 Z M67.3484182,21.3982222 C64.2695979,21.3982222 62.2170509,19.1395556 62.2170509,16.2462222 C62.2170509,13.3528889 64.2695979,11.0942222 67.3484182,11.0942222 C69.8674531,11.0942222 71.8267024,12.6435556 72.1998928,14.9582222 L69.7181769,14.9582222 C69.4196247,13.9875556 68.5053083,13.2968889 67.3670777,13.2968889 C65.7250402,13.2968889 64.6801072,14.6035556 64.6801072,16.2462222 C64.6801072,17.9448889 65.7810188,19.1955556 67.3857373,19.1955556 C68.5053083,19.1955556 69.4196247,18.5608889 69.6995174,17.6088889 L72.1812332,17.6088889 C71.8080429,19.8862222 69.8674531,21.3982222 67.3484182,21.3982222 Z M77.797748,21.3982222 C75.5959249,21.3982222 74.2337802,19.8488889 74.2337802,17.7582222 L74.2337802,11.3368889 L76.6595174,11.3368889 L76.6595174,17.1422222 C76.6595174,18.3368889 77.4432172,19.1582222 78.5627882,19.1582222 C79.7383378,19.1582222 80.5780161,18.2062222 80.5780161,16.9742222 L80.5780161,11.3368889 L83.0037534,11.3368889 L83.0037534,21.1555556 L80.6899732,21.1555556 L80.6899732,19.9608889 L80.5406971,19.9608889 C80.1488472,20.6888889 79.1785523,21.3982222 77.797748,21.3982222 Z M85.5787668,21.1555556 L85.5787668,11.3368889 L87.8738874,11.3368889 L87.8738874,12.9422222 L88.0231635,12.9422222 C88.3403753,12.1768889 89.2360322,11.2995556 90.5981769,11.2995556 L91.4938338,11.2995556 L91.4938338,13.6142222 L90.4862198,13.6142222 C88.9374799,13.6142222 88.004504,14.7528889 88.004504,16.5075556 L88.004504,21.1555556 L85.5787668,21.1555556 Z M94.7965684,10.0302222 C93.919571,10.0302222 93.303807,9.48888889 93.303807,8.61155556 C93.303807,7.77155556 93.919571,7.21155556 94.7965684,7.21155556 C95.6735657,7.21155556 96.2893298,7.77155556 96.2893298,8.61155556 C96.2893298,9.48888889 95.6735657,10.0302222 94.7965684,10.0302222 Z M93.5836997,21.1555556 L93.5836997,11.3368889 L96.009437,11.3368889 L96.009437,21.1555556 L93.5836997,21.1555556 Z M102.745523,21.1555556 C100.711635,21.1555556 99.4801072,19.9982222 99.4801072,17.8888889 L99.4801072,13.2782222 L97.8194102,13.2782222 L97.8194102,11.3555556 L98.9203217,11.3555556 C99.3494906,11.3555556 99.6293834,11.0755556 99.6293834,10.6088889 L99.6293834,8.63022222 L101.905845,8.63022222 L101.905845,11.3368889 L104.611475,11.3368889 L104.611475,13.2782222 L101.905845,13.2782222 L101.905845,17.7955556 C101.905845,18.6168889 102.316354,19.1395556 103.24933,19.1395556 L104.555496,19.1395556 L104.555496,21.1555556 L102.745523,21.1555556 Z M106.887936,25.4488889 L106.887936,23.2835556 L107.89555,23.2835556 C108.735228,23.2835556 109.201716,22.8728889 109.481609,22.1448889 L109.742842,21.4542222 L105.843003,11.3368889 L108.399357,11.3368889 L110.843753,18.2435556 L110.993029,18.2435556 L113.362788,11.3368889 L115.956461,11.3368889 L111.627453,22.8355556 C111.011689,24.4968889 110.004075,25.4488889 108.100804,25.4488889 L106.887936,25.4488889 Z"
+									id="Security" fill-rule="nonzero"></path>
+								<g>
+									<path
+										d="M24.08,7.28 L25.2,22.4 L14,28 L2.8,22.4 L3.92,7.28 L14,8.397312 L24.08,7.28 Z M24.08,3.64 L14,4.757312 L3.92,3.64 L3.92,1.13686838e-13 L14,1.117312 L24.08,1.13686838e-13 L24.08,3.64 Z"
+										id="Combined-Shape"></path>
+								</g>
+							</g>
+						</g>
+					</g>
+				</svg>
+			</div>
+
+			<div class="p-menu request-audit-container">
+				<a class="btn btn--secondary-mutted request-audit-link request-audit-btn" href="https://openzeppelin.com/request/">Request an
+					audit</a>
+			</div>
+
+		</div>
+	</nav>
+
+	<section class="section section--cutted security-audits-hero">
+		<div class="container">
+			<div class="wrapper">
+				<h1 class="heading">Security audits for distributed systems</h1>
+				<p class="description">
+					OpenZeppelin verifies that your distributed systems work as intended by performing an audit. Our engineers
+					fully review your system’s architecture and codebase, and then write a thorough report that includes
+					actionable feedback for every issue found.
+				</p>
+			</div>
+
+			<div class="timeline">
+				<style type="text/css">
+  #process {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+  }
+
+  #process:before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    width: 83%;
+    height: 1px;
+    background: #ffffff;
+    max-width: 894px;
+  }
+
+  #process p {
+
+    opacity: 0.8;
+    line-height: 1.25;
+    text-align: center;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    -webkit-hyphens: none;
+    -o-hyphens: none;
+    hyphens: none;
+    margin-top: 0;
+    padding: 0 15px;
+    font-size: 0.88rem;
+    color: #fff;
+    text-align: center;
+    line-height: 16px;
+    min-width: 80%;
+  }
+
+  #process h2 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1.3;
+    text-align: center;
+    color: #fff;
+    margin: 7px 0 5px;
+
+  }
+
+  #process div {
+    text-align: center;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 93px;
+    min-height: auto;
+    position: relative;
+    width: 159px;
+  }
+
+  #process div:before {
+    content: '';
+    position: absolute;
+    top: -11px;
+    width: 9px;
+    height: 9px;
+    background-color: #ffffff;
+    border-radius: 9px;
+  }
+
+  @media (max-width: 900px) {
+    #process:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 5px;
+      height: 82%;
+      width: 1px;
+    }
+
+    #process div:before {
+      left: -5px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+    }
+
+    #process div {
+      width: 100%;
+      padding: 0 15px 30px 20px;
+      align-items: flex-start;
+      justify-content: flex-start;
+      height: auto;
+      text-align: left;
+    }
+
+    #process div p {
+      width: 80%;
+      padding: 0;
+      text-align: left;
+      font-size: 15px;
+    }
+
+    #process {
+      flex-direction: column;
+    }
+
+    #process h2 {
+      font-size: 14px;
+      margin: 0px 0px 7px 0;
+    }
+  }
+</style>
+
+<div id="process">
+  <div class="first">
+    <h2>CONTACT</h2>
+    <p>You specify an audit-ready code commit through the email below</p>
+  </div>
+  <div>
+    <h2>QUOTE</h2>
+    <p>You get a quote and timeline</p>
+  </div>
+  <div>
+    <h2>AUDIT</h2>
+    <p>We start the audit</p>
+  </div>
+  <div>
+    <h2>REPORT</h2>
+    <p>We privately send the report to your team</p>
+  </div>
+  <div>
+    <h2>FIXES</h2>
+    <p>Your team fixes the issues</p>
+  </div>
+  <div class="last">
+    <h2>PUBLISH</h2>
+    <p>We examine your fixes, update and publish the report (optional)</p>
+  </div>
+</div>
+
+			</div>
+
+			<div class="audit-reports">
+				<h4 class="heading typography--mutted">Our most popular audit reports</h4>
+				<div class="grid audit-grid">
+					<div class="row">
+						<div class="col a-scale">
+							<a target="_blank" rel="noopener" href="https://blog.openzeppelin.com/augur-core-audit-244160d77c09">
+							<img src="../images/security-audits/audit-1.png" /></a>
+						</div>
+						<div class="col a-scale">
+							<a target="_blank" rel="noopener" href="https://blog.openzeppelin.com/solidity-compiler-audit-8cfc0316a420">
+							<img src="../images/security-audits/audit-2.png" /></a>
+						</div>
+						<div class="col a-scale">
+							<a target="_blank" rel="noopener" href="https://blog.openzeppelin.com/basic-attention-token-bat-audit-88bf196df64b">
+							<img src="../images/security-audits/audit-3.png" /></a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col a-scale">
+							<a target="_blank" rel="noopener" href="https://blog.openzeppelin.com/compound-audit/">
+							<img src="../images/security-audits/audit-4.png" /></a>
+						</div>
+						<div class="col a-scale">
+							<a target="_blank" rel="noopener" href="https://blog.openzeppelin.com/technical-description-of-makerdao-governance-critical-vulnerability-facce6bf5d5e/">
+							<img src="../images/security-audits/audit-5.png" /></a>
+						</div>
+						<div class="col a-scale">
+							<a target="_blank" rel="noopener" href="https://blog.openzeppelin.com/centre-token-minting-contracts-audit-6e723177d44b/">
+							<img src="../images/security-audits/audit-6.png" /></a>
+						</div>
+					</div>
+				</div>
+				<a class="btn btn--mutted" href="https://blog.openzeppelin.com/security-audits/" target="_blank" rel="noopener">SEE ALL AUDIT
+					REPORTS ></a>
+			</div>
+		</div>
+		<div class="fake-bg fake-bg--gray"></div>
+	</section>
+
+	<section class="section section--cutted section--gray sa-faqs">
+		<div class="container">
+			<h2 class="heading">
+				FAQ
+			</h2>
+			<ul class="faq-list">
+				<li class="question">
+					<h3 class="faqs-title">What will I find in the audit report?</h3>
+					<p class="faqs-description">The report outlines potential problems in the code with actionable recommendations
+						to guard against potential attack vectors, together with a general analysis of the system dynamics,
+						reflecting both state-of-the-art security patterns and opportunities for improvement regarding the project's
+						overall quality and maturity.</p>
+				</li>
+				<li class="question">
+					<h3 class="faqs-title">Is the report private?</h3>
+					<p class="faqs-description">Yes. We privately send the report to your team so they can address the issues we
+						found. Publishing the report after your team fixes the issues is optional but strongly recommended as a way
+						to contribute to the ecosystem’s security. We can work with you on a disclosure strategy.</p>
+				</li>
+				<li class="question">
+					<h3 class="faqs-title">Which technologies do you work with?</h3>
+					<p class="faqs-description">We have expertise across the whole stack: from languages and compilers to smart
+						contract systems, protocols, and applications. Our audit portfolio spans distributed payment networks,
+						financial structures, and governance systems.</p>
+				</li>
+				<li class="question">
+					<h3 class="faqs-title">How do I know when I'm ready for an external audit?</h3>
+					<p class="faqs-description">We have audited systems in different stages of development and production, but we
+						have found that the best outcomes, and most interesting findings happen when the code has been tested and
+						documented and is ready for deployment. This <a
+							href="https://blog.openzeppelin.com/follow-this-quality-checklist-before-an-audit-8cc6a0e44845"
+							target="_blank" rel="noopener" class="checklist"> checklist</a> lists a few basic quality measures that you should
+						consider before you hand your next project over for an external audit.</p>
+				</li>
+			</ul>
+
+			<div class="sa-comments">
+				<h3 class="heading typography--mutted">The world’s leading projects work with OpenZeppelin</h3>
+				<style type="text/css">
+
+  .security-quote .card {
+    display: flex;
+    padding: 2.4rem;
+    background: #FFFFFF;
+    box-shadow: 0 8px 14px 0 rgba(60,60,60,0.09);
+    border-radius: 4px;
+    min-height: 220px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+		overflow: hidden;
+  }
+
+	.security-quote > .row {
+		flex-direction: column;
+  }
+
+	.security-quote .card:last-child {
+		margin-right: 0;
+  }
+
+	.security-quote .card .quote {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .security-quote .card .quote .text {
+		opacity: 0.9;
+		font-size: 1rem;
+		color: #282846;
+		flex: 1;
+		line-height: 1.6;
+		text-align: left;
+		flex: 0;
+		margin-bottom: 20px;
+  }
+
+  .security-quote .card .card-margin {
+		flex: 0;
+    opacity: 0.8;
+    font-size: 14px;
+    line-height: 2.14;
+    color: #3c3c3c;
+    text-align: left;
+    display: flex;
+    align-items: center;
+  }
+
+	.security-quote .card:first-child .card-margin {
+		margin-top: -7px;
+	}
+
+  .security-quote .card .card-margin .strong {
+    font-weight: 600;
+  }
+
+  .security-quote .card .name {
+
+		display: flex;
+		flex-direction: column;
+    padding: 0 10px;
+    line-height: 1.5;
+  }
+
+  .security-quote .card .card-margin .img {
+    height: 50px;
+		border-radius: 4px;
+  }
+
+	section.sa-projects .description {
+		font-size: 1.0625rem;
+	}
+
+@media (min-width: 700px) {
+	.security-quote > .row {
+		flex-direction: row;
+  }
+
+  .security-quote .card .quote .text {
+		font-size: 1.2rem;
+  }
+
+	.security-quote .card {
+		margin-right: 40px;
+		height: auto;
+		min-height: 220px;
+  }
+
+	.partners-grid .grid-logos__row {
+    margin-top: 20px;
+    flex-wrap: wrap;
+    min-height: 220px;
+    justify-content: center;
+	}
+}
+
+@media (min-width: 900px) {
+	.security-quote .card {
+		height: 220px;
+  }
+}
+</style>
+
+
+<div class="security-quote grid">
+	<div class="row">
+
+		<div class="col card">
+			<blockquote class="quote">
+				<h2 class="text">“OpenZeppelin's audit report was like Christmas morning for all the engineers. Our team is very pleased with the results.”</h2>
+				<div class="card-margin">
+					<img class="img" src="../images/photos/tom.jpg" alt="Tom Kysar">
+					<div class="name">
+						<span class="strong">Tom Kysar</span>
+						<span>Product Manager at Augur</span>
+					</div>
+				</div>
+			</blockquote>
+		</div>
+
+		<div class="col card">
+			<blockquote class="quote">
+				<h2 class="text">“I have a very high opinion of the OpenZeppelin team and their work.”</h2>
+				<div class="card-margin">
+					<img class="img" src="../images/photos/brendan.jpg" alt="Brendan Eich">
+					<div class="name">
+						<span class="strong">Brendan Eich</span>
+						<span>Founder of Mozilla and Brave, Javascript creator</span>
+					</div>
+				</div>
+			</blockquote>
+		</div>
+
+	</div>
+</div>
+
+			</div>
+		</div>
+		<div class="fake-bg fake-bg--white"></div>
+	</section>
+
+	<section class="section sa-partners">
+		<style type="text/css">
+  .partners-grid .grid-logos__col {
+  }
+
+  .partners-grid .grid-logos__row {
+    margin-top: 20px;
+    flex-wrap: wrap;
+    min-height: 220px;
+  }
+
+  .partners-grid .grid-logos__logo {
+    max-height: 65px;
+  }
+</style>
+
+<div class="partners">
+  <div class="container">
+    <div class="grid-logos partners-grid">
+      <div class="grid-logos__row">
+        <span class="grid-logos__col">
+          <img
+            class="grid-logos__logo"
+            src="../images/logos/external/brave.svg"
+          />
+        </span>
+        <span class="grid-logos__col">
+          <img
+            class="grid-logos__logo"
+            src="../images/logos/external/augur.svg"
+          />
+        </span>
+        <span class="grid-logos__col">
+          <img
+            class="grid-logos__logo"
+            src="../images/logos/external/ethfund.svg"
+          />
+        </span>
+        <span class="grid-logos__col">
+          <img
+            class="grid-logos__logo"
+            src="../images/logos/external/coinbase.svg"
+          />
+        </span>
+        <span class="grid-logos__col">
+          <img
+            class="grid-logos__logo"
+            src="../images/logos/external/optimism_logo.svg"
+          />
+        </span>
+        <span class="grid-logos__col">
+          <img
+            class="grid-logos__logo"
+            src="../images/logos/external/cosmos.svg"
+          />
+        </span>
+        <span class="grid-logos__col">
+          <img
+            class="grid-logos__logo"
+            src="../images/logos/external/compound.png"
+          />
+        </span>
+        <span class="grid-logos__col">
+          <img
+            class="grid-logos__logo"
+            src="../images/logos/external/the-graph.svg"
+          />
+        </span>
+        <span class="grid-logos__col">
+          <img
+            class="grid-logos__logo"
+            src="../images/logos/external/bitgo.svg"
+          />
+        </span>
+        <span class="grid-logos__col">
+          <img
+            class="grid-logos__logo"
+            src="../images/logos/external/shapeshift.svg"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+	</section>
+
+	<section class="section section--gray">
+		<div class="container">
+			<div class="section-header">
+				<h2 class="heading">Request a security audit</h2>
+				<p class="description">
+					Work with the leading smart contract security audit team to secure your code
+				</p>
+				<div class="request-button">
+					<a href="https://openzeppelin.com/request/" class="btn cta">Request an Audit</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+
+<script src="/js/fixedSubMenu.js"></script>
+
+			<style>
+  .footer {
+    background: #282746;
+    color: white;
+    padding: 74px 0 20px;
+    margin-bottom: 0;
+  }
+
+  .footer a {
+    display: block;
+    font-size: 0.98rem;
+    opacity: 0.6;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .footer a:hover {
+    opacity: 1;
+  }
+
+  .footer h3 {
+    display: block;
+    font-size: 0.98rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-transform: none;
+    margin-bottom: 10px;
+    text-align: left;
+    font-family: "silka";
+  }
+
+  .footer .footer-box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .footer .link-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    margin-bottom: 35px;
+  }
+
+  .footer .link-box div {
+    margin-right: 45px;
+    margin-bottom: 45px;
+    width: 100px;
+  }
+
+  .footer .link-box div:last-child {
+    margin: 0;
+  }
+
+  .footer .link-box a {
+    line-height: 1.4rem;
+    padding-bottom: 0.7rem;
+  }
+
+  .footer .company {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .footer .logo {
+    display: flex;
+    margin-bottom: 45px;
+  }
+
+  .footer .rights a,
+  .footer .rights span {
+    flex-direction: row;
+    bottom: 0;
+    font-size: 0.8rem;
+    color: #9a9cac;
+  }
+
+  .footer .rights a {
+    display: inline;
+    color: #c7c8d1;
+    margin-left: 7px;
+    border-left: 1px solid #8d8d9d;
+    padding-left: 7px;
+    height: 0.9rem;
+    line-height: 0.9rem;
+  }
+
+  @media (min-width: 980px) {
+    .footer .footer-box {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .footer .link-box {
+      flex-direction: row;
+    }
+
+    .footer .rights {
+      position: absolute;
+      bottom: 0;
+      left: 16px;
+    }
+  }
+  @media (max-width: 480px) {
+    .footer .link-box a {
+      line-height: 3rem;
+    }
+    .footer a,
+    .footer h3 {
+      font-size: 1.2rem;
+    }
+    .footer .link-box div {
+      margin-right: 50px;
+    }
+  }
+
+  @media (max-width: 321px) {
+    .footer .link-box div {
+      margin-right: 43px;
+    }
+  }
+</style>
+
+<footer class="footer">
+  <div class="container footer-box">
+    <div class="company">
+      <div class="logo">
+        <img
+          src="/images/logos/openzeppelin/oz_main_white.svg"
+          alt="OpenZeppelin logo"
+        />
+      </div>
+    </div>
+    <div class="link-box">
+      <div>
+        <h3>Products</h3>
+        <ul>
+          <li><a href="/contracts">Contracts</a></li>
+          <li><a href="/defender">Defender</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Security</h3>
+        <ul>
+          <li><a href="/security-audits/">Audits</a></li>
+          <li><a href="/request/">Request a security audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Learn</h3>
+        <ul>
+          <li>
+            <a href="https://docs.openzeppelin.com" target="_blank" rel="noopener">Docs</a>
+          </li>
+          <li>
+            <a href="https://forum.openzeppelin.com" target="_blank" rel="noopener"
+              >Community Forum</a
+            >
+          </li>
+          <li>
+            <a href="https://ethernaut.openzeppelin.com" target="_blank" rel="noopener"
+              >Ethernaut</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/jobs">Jobs</a></li>
+          <li>
+            <a href="https://github.com/openzeppelin" target="_blank" rel="noopener nofollow">Github</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/openzeppelin" target="_blank" rel="noopener nofollow"
+              >Twitter</a
+            >
+          </li>          
+          <li>
+            <a href="../images/OpenZeppelin_Logo_Kit.zip" download>Logo Kit</a>
+          </li>
+          <li>
+            <a href="https://blog.openzeppelin.com/" target="_blank" rel="noopener"
+              >News & Events</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="rights">
+      <span>© OpenZeppelin 2020</span>
+      <a class="terms" href="/privacy">Privacy</a>
+      <a class="terms" href="/tos">Terms of Use</a>
+    </div>
+  </div>
+</footer>
+
+		</div>
+		<!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com -->
+		<script type="text/javascript" src="https://c86d64.openzeppelin.com/app/js/api.min.js" data-account="144063" data-user="131584" data-api="campaigns" async></script>
+		<!-- / OptinMonster -->
+	</body>
+</html>
