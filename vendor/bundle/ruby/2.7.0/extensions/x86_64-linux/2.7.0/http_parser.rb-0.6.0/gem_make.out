@@ -1,0 +1,16 @@
+current directory: /home/shamaleyte/oz-reps/reps/openzeppelin-main/openzeppelin.com/vendor/bundle/ruby/2.7.0/gems/http_parser.rb-0.6.0/ext/ruby_http_parser
+/usr/bin/ruby2.7 -I /usr/lib/ruby/2.7.0 -r ./siteconf20220411-18524-1k60tpu.rb extconf.rb
+creating Makefile
+
+current directory: /home/shamaleyte/oz-reps/reps/openzeppelin-main/openzeppelin.com/vendor/bundle/ruby/2.7.0/gems/http_parser.rb-0.6.0/ext/ruby_http_parser
+make "DESTDIR=" clean
+
+current directory: /home/shamaleyte/oz-reps/reps/openzeppelin-main/openzeppelin.com/vendor/bundle/ruby/2.7.0/gems/http_parser.rb-0.6.0/ext/ruby_http_parser
+make "DESTDIR="
+compiling ruby_http_parser.c
+compiling ryah_http_parser.c
+linking shared-object ruby_http_parser.so
+
+current directory: /home/shamaleyte/oz-reps/reps/openzeppelin-main/openzeppelin.com/vendor/bundle/ruby/2.7.0/gems/http_parser.rb-0.6.0/ext/ruby_http_parser
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 ruby_http_parser.so ./.gem.20220411-18524-x0o4dp
